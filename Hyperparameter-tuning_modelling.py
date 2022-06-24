@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """
 It is recommended to execute this code in Colaboratory, else all the paths need to be changed. To use this file as is, Google Drive needs to be mounted.
 """
