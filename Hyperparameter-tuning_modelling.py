@@ -1,3 +1,27 @@
+"""
+It is recommended to execute this code in Colaboratory, else all the paths need to be changed. To use this file as is, Google Drive needs to be mounted.
+"""
+
+!pip install opensoundscape 
+
+from opensoundscape.preprocess.preprocessors import CnnPreprocessor
+from opensoundscape.torch.models.cnn import PytorchModel
+
+import torch
+import pandas as pd
+from pathlib import Path
+import numpy as np
+import random
+import subprocess
+from matplotlib import pyplot as plt
+
+import Preprocessing.py
+
+# Setting seeds for python and pytorch
+torch.manual_seed(17)
+random.seed(17)
+
+
 """The following code cell is only meant to create an empty csv file w/ specified coloumns, at specified path, and need not be executed anymore."""
 
 # Creating a dataframe for trained model's results on validation set.
