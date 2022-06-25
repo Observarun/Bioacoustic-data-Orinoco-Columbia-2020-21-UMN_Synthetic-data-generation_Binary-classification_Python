@@ -1,1 +1,1 @@
-Species Classification (Binary) from Bio-acoustic data
+# Binary Species Classification from Bio-acoustic Data
