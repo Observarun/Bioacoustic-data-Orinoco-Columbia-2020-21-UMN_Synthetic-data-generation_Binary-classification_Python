@@ -15,8 +15,8 @@ In this work, which I did in collaboration w/ a PhD student in the Fieberg lab (
 3. [ Executive Summary ](#exsum)
 
 
-<a name="data"></a>
-### 1. Data
+
+### Data
 
 Description...
 
