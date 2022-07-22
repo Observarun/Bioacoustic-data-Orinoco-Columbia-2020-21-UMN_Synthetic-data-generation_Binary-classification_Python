@@ -15,18 +15,19 @@ In this work, which I did in collaboration w/ a PhD student in the Fieberg lab (
 3. [ Executive Summary ](#exsum)
 
 
+<a name="data"></a>
 ## Data
 
 Description...
 
 
 <a name="tex"></a>
-### 2. Technologies
+## Technologies
 
 Description...
 
 
 <a name="exsum"></a>
-### 3. Executive Summary
+## Executive Summary
 
 Description...
