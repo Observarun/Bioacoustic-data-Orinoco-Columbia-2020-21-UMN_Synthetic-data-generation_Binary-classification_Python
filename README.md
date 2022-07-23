@@ -18,7 +18,7 @@ In this work, which I did in collaboration w/ a PhD student in the Fieberg lab (
 <a name="data"></a>
 ## Data
 
-Data collected for this project is in the form of millions of audio files w/ animal sounds. A few thousand of these files have been categorised as having cattle present or absent either mannually or using pattern recognition tools available online. The idea is to use these labelled audio files for training the model.
+Data collected for this project is in the form of millions of audio files w/ animal sounds recorded in fields and forests. A few thousand of these files have been categorised as having cattle present or absent either mannually or using pattern recognition tools available online, like Rainforest Connection's Arbimon. The idea is to use these labelled audio files for training the model.
 
 
 <a name="tex"></a>
