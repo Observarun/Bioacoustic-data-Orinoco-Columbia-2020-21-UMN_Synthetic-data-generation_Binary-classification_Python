@@ -18,9 +18,9 @@ In this work, which I have done in collaboration w/ a PhD student in the Fieberg
 <a name="data"></a>
 ## Data
 
-Data collected for this project is in the form of millions of audio files w/ animal sounds recorded in fields and forests. A few thousand of these files have been categorised as having cattle present or absent either mannually or using pattern recognition tools available online, like Rainforest Connection's Arbimon. The idea is to use these labelled audio files for training the model.
+Data collected for this project is in the form of millions of audio files w/ animal sounds recorded in fields and forests. A few thousand of these files have been categorised as having cattle sounds present or absent either mannually or using pattern recognition tools available online, like Rainforest Connection's Arbimon.
 
-The data files cattle_pres.csv and cattle_abs.csv contain file names and other details of the 
+The folders cattle_pres and cattle_abs contain these marked audio files. The idea is to use this labelled audio data for training the model. The data files cattle_pres.csv and cattle_abs.csv contain names and other details (like date/time) of the audio files with cattle sounds present and absent respectively.
 
 
 <a name="tex"></a>
