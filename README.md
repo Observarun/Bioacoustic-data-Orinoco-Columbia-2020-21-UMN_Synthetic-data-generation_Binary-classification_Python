@@ -18,10 +18,9 @@ In this work, which I have done in collaboration w/ a PhD student, Juliana Velez
 <a name="data"></a>
 ## Data
 
-This work is part of a project for which the data is in the form of millions of audio & image files w/ various wildlife and disturbances in the form of domestic animals and gunshot sounds recorded in cattle ranches and forests of the Orinoquia region (also called the Eastern Plains) of Columbia. The broad goal of the project is to understand the interaction between wildlife and disturbances like cattle, dogs while also exploring the effect of poaching. For this work, we concern ourselves with cattle and mountain tapir data.
+This work is part of a project for which the data is in the form of millions of audio & image files w/ various wildlife and disturbances in the form of domestic animals and gunshot sounds recorded in cattle ranches and forests of the Orinoquia region (also called the Eastern Plains) of Columbia. The broad goal of the project is to understand the interaction between wildlife and disturbances like cattle, dogs while also exploring the effect of poaching. For this work, we concern ourselves with mountain tapir (classified as "Endangered" by IUCN in 1996) and cattle.
 
-A few thousand of these files have been categorised as having cattle sounds present or absent either mannually or using pattern recognition tools available online, like Rainforest Connection's Arbimon. The folders cattle_pres and cattle_abs contain these marked audio files. The idea is to use this labelled audio data for training the model. Since CNNs work with image data, audio files are to be converted to frequency vs time spectrogram like images. The data files cattle_pres.csv and cattle_abs.csv contain names and other details (like date/time) of the audio files with cattle sounds present and absent respectively.
-
+A few thousand of the audio files have been categorised as having cattle sounds present or absent either mannually or using pattern recognition tools available online, like Rainforest Connection's Arbimon. The sub-folders cattle_pres and cattle_abs under Cattle folder contain these marked audio files. However, there are only a handful of audio records w/ tapir calls could be collected. The idea is to use this labelled audio data for training the model. Since CNNs work with image data, audio files are to be converted to frequency vs time spectrogram like images.
 
 <a name="tex"></a>
 ## Technologies
@@ -32,4 +31,4 @@ Description...
 <a name="exsum"></a>
 ## Executive Summary
 
-Description...
+The data files cattle_pres.csv and cattle_abs.csv contain names and other details (like date/time) of the audio files with cattle sounds present and absent respectively.
