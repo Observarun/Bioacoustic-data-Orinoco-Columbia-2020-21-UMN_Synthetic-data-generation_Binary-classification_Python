@@ -20,17 +20,20 @@ In this work, which I have done in collaboration w/ a PhD student, Juliana Velez
 
 This work is part of a project for which the data is in the form of millions of audio & image files w/ various wildlife and disturbances in the form of domestic animals and gunshot sounds recorded in the forests and adjoining cattle ranches the Orinoquia region (also called the Eastern Plains) of Columbia. The broad goal of the project is to understand the interaction between wildlife and domestic animals like cattle, dogs while also exploring the effect of poaching. For this repository, the species of concern are mountain tapir (classified as "Endangered" by IUCN in 1996) and cattle.
 
-A few thousand of the audio files have been categorised as having cattle sounds present or absent either mannually or using pattern recognition tools available online, like Rainforest Connection's Arbimon. The sub-folders cattle_pres and cattle_abs under Cattle folder contain these marked audio files. However, only a handful of audio records w/ tapir calls could be collected. The idea is to use this labelled audio data for training the model. Since CNNs work with image data, audio files are to be converted to frequency vs time spectrogram like images. The data files cattle_pres.csv and cattle_abs.csv contain names and other details (like date/time) of the audio files with cattle sounds present and absent respectively.
+[AudioMoth] (https://www.openacousticdevices.info/audiomoth) devices have been used to capture the sounds. Raw files are in FLAC (Free Lossless Audio Codec) format, each 10 seconds long. A few thousand of the audio files have been categorised as having cattle sounds present or absent either mannually or using pattern recognition tools available online, like Rainforest Connection's Arbimon. The sub-folders cattle_pres and cattle_abs under Cattle folder contain these marked audio files. However, only a handful of audio records w/ tapir calls could be collected. The idea is to use this labelled audio data for training the model. Since CNNs work with image data, audio files are to be converted to frequency vs time spectrogram like images. The data files cattle_pres.csv and cattle_abs.csv contain names and other details (like date/time) of the audio files with cattle sounds present and absent respectively.
 
 <a name="tex"></a>
 ## Technologies
 
-Description...
+Python
+Pandas
+Matplotlib
+
 
 
 <a name="exsum"></a>
 ## Executive Summary
 
-The audio files are in FLAC (Free Lossless Audio Codec) format, and typically have forest noise in the background, with twigs snapping as the animals move around. Since there are only __ raw audio records w/ tapir sounds, data augmentation needs to be performed so as to inflate the size of the training set. Also on a/c of sparse training data, it was deemed important to train the model with each record having complete silence other than at the instance (typically less than a second) of tapir call. 
+The raw audio files are in FLAC (Free Lossless Audio Codec) format, and typically have forest noise in the background, with twigs snapping as the animals move around. Since there are only __ raw audio records w/ tapir sounds, data augmentation needs to be performed so as to inflate the size of the training set. Further, as the model has fewer records to pick out the tapir sound out of the  Also on a/c of sparse training data, it was deemed important to train the model with each record having complete silence other than at the instance (typically less than a second) of tapir call. 
 
-To prepare this kind of clip, the chunk of audio w/ tapir call needs to be separated. This requires identifying the temporal location of the tapir sound in the clip. I played each record to identify, up to a second, the location of the tapir call, and looked for a discernable pattern within that one second in the corresponding spectrogram. Spectrograms have been plotted using,
+To prepare this kind of clip, the chunk of audio w/ tapir call needs to be separated. This requires identifying the temporal location of the tapir sound in the clip. I played each record to identify, up to a second, the location of the tapir call, and looked for a discernable pattern within that one second in the corresponding spectrogram. To generate spectrograms from the acoustic file, an AudioSegment instance is created 
