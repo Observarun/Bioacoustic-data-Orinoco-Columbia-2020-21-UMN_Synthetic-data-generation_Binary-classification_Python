@@ -26,8 +26,16 @@ This work is part of a project for which the data is in the form of millions of 
 ## Technologies
 
 Python
-Pandas
-Matplotlib
+
+Matplotlib: Package matplotlib.pyplot for creating, displaying, and saving figures/colorplots.  for making colour plot, 
+
+Path: For extracting and exporting/saving files out of a drive location.
+
+Pandas: For working w/ dataframes.
+
+Pydub: Used in data augmentation. pydub.AudioSegment for extracting samples and metadata from a sound file, splitting an audio file into parts, and merging various files together.
+
+Scipy: Used scipy.signal for creating spectrogram from an audio file.
 
 
 
