@@ -27,7 +27,7 @@ This work is part of a project for which the data is in the form of millions of 
 
 Python
 
-Matplotlib: Package matplotlib.pyplot for creating, displaying, and saving figures/colorplots.  for making colour plot, 
+Matplotlib: Package matplotlib.pyplot for creating, displaying, and saving figures/colorplots.
 
 Path: For extracting and exporting/saving files out of a drive location.
 
