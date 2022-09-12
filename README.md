@@ -27,15 +27,15 @@ This work is part of a project for which the data is in the form of millions of 
 
 Python
 
-Matplotlib: Package matplotlib.pyplot for creating, displaying, and saving figures/colorplots.
+Matplotlib: Module matplotlib.pyplot for creating, displaying, and saving figures/colorplots.
 
-Path: For extracting and exporting/saving files out of a drive location.
+Pathlib: Class pathlib.Path for extracting files out of and exporting/saving files to a drive location.
 
 Pandas: For working w/ dataframes.
 
 Pydub: Used in data augmentation. pydub.AudioSegment for extracting samples and metadata from a sound file, splitting an audio file into parts, and merging various files together.
 
-Scipy: Used scipy.signal for creating spectrogram from an audio file.
+Scipy: Module scipy.signal for creating spectrogram from an audio file.
 
 
 
