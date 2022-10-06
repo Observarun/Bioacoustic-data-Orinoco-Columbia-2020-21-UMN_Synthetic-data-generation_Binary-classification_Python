@@ -48,9 +48,9 @@ As stated before, there are four audio files from the study site containing five
 
 I have generated new data out of the original tapir recordings in two different ways. To understand the mechanism of generating new data out of the original tapir recordings, consider the representative spectrogram (which is a frequency vs time plot created from an audio clip) below.
     (Diagram)
-The tapir frequency band is moved in time, with each new clip created out of this one having the frequency band  at different time instances. I have done this in two different ways, distinction being in the background of the tapir call. Next, I describe and give arguments for each.
+The frequency spike as seen fairly localised in time represents a tapir call. I moved the tapir frequency band in time, with each new clip created out of this one having this frequency band at different time instances. I have done this in two different ways, distinction being in the background of the tapir call. Next, I describe and give arguments for each.
 
-In the first method, I create records having complete silence other than at the instance (typically less than a second) of tapir call. Further, as the model has fewer records (on a/c of sparse training data) to pick the tapir sound out of the clip, it was deemed important to train the model with each record having complete silence other than at the instance (typically less than a second) of tapir call. 
+A model trained with this tapir data will need to isolate the tapir call out of the (say) 5 seconds long clip. Since the training data for tapir presence is sparse, it seems to make sense to have complete silence other than at the instance of a tapir call. This is the approach I take in the first method - generate records having complete silence other than at the instance (typically less than a second) of tapir call(s).
 
 Both these methods require the chunk of audio w/ tapir to be separated. This requires identifying the temporal location of the tapir sound in the clip. I played each record to identify, to within a second, the location of the tapir call, and looked for a discernable pattern within that one second in the corresponding spectrogram. To generate spectrograms from the acoustic file, an AudioSegment instance is created 
 
