@@ -46,7 +46,7 @@ For simplicity, the machine learning model in this repository is restricted to t
 
 As stated before, there are four audio files from the study site containing five tapir calls in all. I have understood from literature (**reference required**) that tapirs have more types of calls, and the five calls that I have got access to do not appear distinct. Accordingly, I requessted to include some of the tapir audio records obtained from the Cali Zoo. This increased the number of tapir files in the base dataset (which is used to generate extra recordings) to 18.
 
-I have generated new data out of the original tapir recordings in two different ways. To understand the mechanism of generating new data out of the original tapir recordings, consider the representative spectrogram (which is a frequency vs time plot created from an audio clip) below.
+I have generated new data out of the original tapir recordings in two different ways. To understand the mechanism of generating new data out of the existing tapir records, consider the representative spectrogram (which is a frequency vs time plot created from an audio clip) below.
     (Diagram)
 The frequency spike as seen fairly localised in time represents a tapir call. I moved the tapir frequency band in time, with each new clip created out of this one having this frequency band at different time instances. I have done this in two different ways, distinction being in the background of the tapir call. Next, I describe and give arguments for each.
 
