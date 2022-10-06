@@ -50,7 +50,9 @@ I have generated new data out of the original tapir recordings in two different 
     (Diagram)
 The frequency spike as seen fairly localised in time represents a tapir call. I moved the tapir frequency band in time, with each new clip created out of this one having this frequency band at different time instances. I have done this in two different ways, distinction being in the background of the tapir call. Next, I describe and give arguments for each.
 
-A model trained with this tapir data will need to isolate the tapir call out of the (say) 5 seconds long clip. Since the training data for tapir presence is sparse, it seems to make sense to have complete silence other than at the instance of a tapir call. This is the approach I take in the first method - generate records having complete silence other than at the instance (typically less than a second) of tapir call(s).
+A model trained with this tapir data will need to isolate the tapir call out of the (say) 5 seconds long clip. Since the training data for tapir presence is sparse, it seems to make sense to have complete silence other than at the instance of the tapir call, which is typically less than a second. In a way, this makes it convenient for the model to isolate the tapir call out of the background. This is the approach I take in the first method - generate records having complete silence in the background of the tapir sound.
+
+In the second approach, I generate new clips with real background. This could be other animals/birds calls, twigs snapping
 
 Both these methods require the chunk of audio w/ tapir to be separated. This requires identifying the temporal location of the tapir sound in the clip. I played each record to identify, to within a second, the location of the tapir call, and looked for a discernable pattern within that one second in the corresponding spectrogram. To generate spectrograms from the acoustic file, an AudioSegment instance is created 
 
