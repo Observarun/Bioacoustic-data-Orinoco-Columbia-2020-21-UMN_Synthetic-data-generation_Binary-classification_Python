@@ -53,6 +53,6 @@ The tapir frequency band is moved in time, with each new clip created out of thi
 
 In the first method, I create records having complete silence other than at the instance (typically less than a second) of tapir call. Further, as the model has fewer records (on a/c of sparse training data) to pick the tapir sound out of the clip, it was deemed important to train the model with each record having complete silence other than at the instance (typically less than a second) of tapir call. 
 
-To prepare this kind of clip, the chunk of audio w/ tapir call needs to be separated. This requires identifying the temporal location of the tapir sound in the clip. I played each record to identify, up to a second, the location of the tapir call, and looked for a discernable pattern within that one second in the corresponding spectrogram. To generate spectrograms from the acoustic file, an AudioSegment instance is created 
+Both these methods require the chunk of audio w/ tapir to be separated. This requires identifying the temporal location of the tapir sound in the clip. I played each record to identify, to within a second, the location of the tapir call, and looked for a discernable pattern within that one second in the corresponding spectrogram. To generate spectrograms from the acoustic file, an AudioSegment instance is created 
 
 The idea is to use this labelled audio data for training the model. Since CNNs work with image data, audio files are to be converted to frequency vs time spectrogram like images. How spectrogram is created.
