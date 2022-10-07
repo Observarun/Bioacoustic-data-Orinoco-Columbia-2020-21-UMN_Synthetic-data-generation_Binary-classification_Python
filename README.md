@@ -52,7 +52,7 @@ The frequency spike as seen fairly localised in time represents a tapir call. I 
 
 A model trained with this tapir data will need to isolate the tapir call out of the (say) 5 seconds long clip. Since the training data for tapir presence is sparse, it seems to make sense to have complete silence other than at the instance of the tapir call, which is typically less than a second. In a way, this makes it convenient for the model to isolate the tapir call out of the background. This is the approach I take in the first method - generate records having complete silence in the background of the tapir sound.
 
-In the second approach, I generate new clips with real background - could be other animals/birds calls, leaves rustling, twigs snapping as creatures move around, et cetera. This approach makes sure that the subsequent model training is done with real data, like would be encountered during testing.
+In the second approach, I generate new clips with real background - could be other animals/birds calls, leaves rustling, twigs snapping as creatures move around, et cetera. This approach makes sure that the subsequent model training is done with real data, like would be encountered during testing phase. As stated before, the duration of each raw clip is 10 seconds.
 
 Both these methods require the chunk of audio w/ tapir to be separated. This requires identifying the temporal location of the tapir sound in the clip. I played each record to identify, to within a second, the location of the tapir call, and looked for a discernable pattern within that one second in the corresponding spectrogram. To generate spectrograms from the acoustic file, an AudioSegment instance is created 
 
