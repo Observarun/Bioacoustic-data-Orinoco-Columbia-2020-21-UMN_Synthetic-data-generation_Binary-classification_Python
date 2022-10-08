@@ -50,7 +50,7 @@ As stated before, there are four audio files from the study site containing five
 
 ### Generating new data
 
-I ensured that all the audio clips resulting from this procedure are of 5 seconds duration. This is in line with the way the data science problem in the bigger project has been addressed by the PhD student (which is not part of this repository). The machine learning classification task is performed sans hyperparameter tuning, and accordingly, clips of shorter duration should make the performance of a randomly chosen CNN model better. However, model training w/ too short clips is very slow, and 5 seconds offers a good balance.
+I ensured that all the audio clips resulting from this procedure are of 5 seconds duration. This is in line with the way the data science problem problem in the bigger project, which the work in this repository is part of, has been addressed by the PhD student. The machine learning classification task is performed sans hyperparameter tuning, which leaves making educated speculations about the parameters of the model. Clips of shorter duration should make it easier for the model to locate the tapir call amidst the background, making the performance of a randomly chosen CNN model better. However, model training w/ too short clips is very slow, and 5 seconds offers a good balance.
 
 I have generated new data out of the original tapir recordings using two different approaches. To understand the mechanism of generating new data out of the existing tapir records, consider the representative spectrogram (which is a frequency vs time plot created from an audio clip) below.
     ![Spectrogram corresponding an audio clip](https://user-images.githubusercontent.com/83636458/194688632-39b7fe1f-4cf9-4c5b-8c48-1a63aa89d4a9.png)
