@@ -42,7 +42,7 @@ Scipy: Module scipy.signal for creating spectrogram from an audio file.
 <a name="exsum"></a>
 ## Executive Summary
 
-For simplicity, the machine learning model in this repository is restricted to the binary classification problem. Accordingly, the model needs to be trained with a dataset containing records for the presence and absence of the species of concern (which is cattle). Additionally, the bigger project which this work is part of has tapir as one species of interest. Since only a handful of raw audio records w/ tapir sounds could be collected, I have performed data augmentation on them, so as to inflate the size of the tapir positive data. I ensured that all the audio clips resulting from this procedure are of 5 seconds duration. This would subsequently be useful in model training for tapir absence/presence (which is not part of this repository) because it is done sans hyperparameter tuning, and accordingly, clips of shorter duration should make the performance of a randomly chosen CNN model better. However, model training w/ too short clips is very slow, and 5 seconds offers a good balance.
+For simplicity, the machine learning model in this repository is restricted to the binary classification problem. Accordingly, the model needs to be trained with a dataset containing records for the presence and absence of the species of concern (which is cattle). Additionally, the bigger project which this work is part of has tapir as one species of interest. Since only a handful of raw audio records w/ tapir sounds could be collected, I have performed data augmentation on them, so as to inflate the size of the tapir positive data. This will subsequently be useful for the tapir absence/presence classification problem.
 
 ### The insufficient data problem
 
@@ -50,8 +50,10 @@ As stated before, there are four audio files from the study site containing five
 
 ### Generating new data
 
+I ensured that all the audio clips resulting from this procedure are of 5 seconds duration. This is in line with the way the data science problem in the bigger project has been addressed by the PhD student (which is not part of this repository). The machine learning classification task is performed sans hyperparameter tuning, and accordingly, clips of shorter duration should make the performance of a randomly chosen CNN model better. However, model training w/ too short clips is very slow, and 5 seconds offers a good balance.
+
 I have generated new data out of the original tapir recordings using two different approaches. To understand the mechanism of generating new data out of the existing tapir records, consider the representative spectrogram (which is a frequency vs time plot created from an audio clip) below.
-    (Diagram)
+    ![Spectrogram corresponding an audio clip]{}
 The frequency spike as seen fairly localised in time represents a tapir call. I moved the tapir frequency band in time, with each new clip created out of this one having this frequency band at different time instances. I have done this in two different ways, distinction being in the background of the tapir call. Next, I describe and give arguments for each.
 
 A model trained with this tapir data will need to isolate the tapir call out of the (say) 5 seconds long clip. Since the training data for tapir presence is sparse, it seems to make sense to have complete silence other than at the instance of the tapir call, which is typically less than a second. In a way, this makes it convenient for the model to isolate the tapir call out of the background. This is the approach I take in the first method - generate records having complete silence in the background of the tapir sound.
@@ -60,8 +62,10 @@ In the second approach, I generate new clips with real background - could be oth
 
 ### Spectrograms from audio
 
-Both these methods require the chunk of audio w/ tapir sound to be separated, which requires identifying the temporal location of the tapir sound in the clip. I played each record to identify, to within a second, the location of the tapir call, and looked for a discernable pattern within that one second in the corresponding spectrogram. Spectrograms are created using scipy.signal's spectrogram() method, which takes the numpy array, created from Audiosegment (pydub library) object for the corresponding audio file, as an argument.
+Both these methods require the chunk of audio w/ tapir sound to be separated, which requires identifying the temporal location of the tapir sound in the clip. I played each record to identify, to within a second, the location of the tapir call, and looked for a discernable pattern within that one second in the corresponding spectrogram. Spectrogram is a frequency vs time representation of an acoustic signal generated using Fourier transformation. Essentially, it is a transformation from amplitude to frequency space.
 
-Binary classification
+Further, for the classification problem addressed in this repository, convolutional neural networks are used. Since CNNs work w/ image data, spectrograms corresponding to all the audio files need to be generated. I create spectrograms using scipy.signal's spectrogram() method, which takes the numpy array, created from Audiosegment object (pydub library) for the corresponding audio file, as an argument.
+
+### Binary classification
 
 These constitute the labeled data for cattle presence/absence problem. The idea is to use this labelled audio data for training the model. Since CNNs work with image data, audio files are to be converted to frequency vs time spectrogram like images. How spectrogram is created.
