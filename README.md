@@ -30,9 +30,9 @@ Python
 
 matplotlib: Module matplotlib.pyplot for creating, displaying, and saving figures/colorplots.
 
-pathib: Class pathlib.Path for extracting files out of and exporting/saving files to a drive location.
+pathib module: Class pathlib.Path for extracting files out of and exporting/saving files to a drive location.
 
-Pandas: For working w/ dataframes.
+pandas package: For working w/ dataframes.
 
 Pydub: Used in data augmentation. pydub.AudioSegment for extracting samples and metadata from a sound file, splitting an audio file into parts, and merging various files together.
 
