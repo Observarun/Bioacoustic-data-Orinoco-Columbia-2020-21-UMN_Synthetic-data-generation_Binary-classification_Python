@@ -68,7 +68,7 @@ Further, for the classification problem addressed in this repository, convolutio
 
 ### Generating new clips
 
-As explained before, I generate new clips in two ways. I generate chunks of silence in the background of tapir calls with silent() method in pydub.AudioSegment.
+As explained before, I generate new clips in two ways. For silence in background, I generate chunks of silence with silent() class method in pydub.AudioSegment. For each audio file, I create pydub.AudioSegment instance using AudioSegment.from_file('filename'), and extract a chunk of this file from a to b msec using AudioSegment.from_file('filename')[a:b] (**what is it called?!** https://github.com/jiaaro/pydub, https://stackoverflow.com/questions/42060433/python-pydub-splitting-an-audio-file). For saving the clips generated using a particular file, I use the stem property of pathlib.PurePath(filename) instance.
 
 ### Binary classification
 
