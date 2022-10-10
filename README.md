@@ -66,6 +66,10 @@ Both these methods require the chunk of audio w/ tapir sound to be separated, wh
 
 Further, for the classification problem addressed in this repository, convolutional neural networks are used. Since CNNs work w/ image data, spectrograms corresponding to all the audio files need to be generated. I create spectrograms using scipy.signal's spectrogram() method, which takes the numpy array, created from Audiosegment object (pydub library) for the corresponding audio file, as an argument. An example can be seen above, such frequency blobs stacked on top of each other typically correspond to a nasal sound.
 
+### Generating new clips
+
+As explained before, I generate new clips in two ways. I generate chunks of silence in the background of tapir calls with silent() method in pydub.AudioSegment.
+
 ### Binary classification
 
 These constitute the labeled data for cattle presence/absence problem. The idea is to use this labelled audio data for training the model. Since CNNs work with image data, audio files are to be converted to frequency vs time spectrogram like images. How spectrogram is created.
