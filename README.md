@@ -28,9 +28,9 @@ This work is part of a project for which the data is in the form of millions of 
 
 Python
 
-Matplotlib: Module matplotlib.pyplot for creating, displaying, and saving figures/colorplots.
+matplotlib: Module matplotlib.pyplot for creating, displaying, and saving figures/colorplots.
 
-Pathlib: Class pathlib.Path for extracting files out of and exporting/saving files to a drive location.
+pathib: Class pathlib.Path for extracting files out of and exporting/saving files to a drive location.
 
 Pandas: For working w/ dataframes.
 
