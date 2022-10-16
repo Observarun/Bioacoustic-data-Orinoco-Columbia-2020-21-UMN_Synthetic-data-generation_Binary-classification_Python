@@ -32,9 +32,9 @@ In this repository, I have summarised the data in CSV files. In addition, I prov
 
 Python (3)
 
-[matplotlib](https://matplotlib.org/) library (link): Module matplotlib.pyplot for creating, displaying, and saving figures/colorplots.
+[matplotlib](https://matplotlib.org/) library: Module matplotlib.pyplot for creating, displaying, and saving figures/colorplots.
 
-[pathib](https://pathlib.readthedocs.io/en/pep428/) module: Class pathlib.Path for extracting files out of and exporting/saving files to a drive location.
+[pathib](https://pathlib.readthedocs.io/en/pep428/) module: Classes Path and PurePath for working w/ files and directories.
 
 [pandas](https://pandas.pydata.org/) package: For working w/ dataframes.
 
@@ -44,15 +44,14 @@ Python (3)
 
 [OpenSoundscape](http://opensoundscape.org/en/latest/) library: Used for training CNN model with bio-acoustic data.
 
-Pytorch](https://pytorch.org/) framework: Classes and sub-modules of torch.nn module used for writing autoencoder.
+[Pytorch](https://pytorch.org/) framework: Classes and sub-modules of torch.nn module used for writing autoencoder.
 
 
 <a name="exsum"></a>
 ## Executive Summary (Work summary...)
 
 (Repeat the goal somewhere.)
-The broad goal of the project is to understand the interaction between wildlife and domestic animals like cattle, dogs while also exploring the effect of poaching.
-(Goal of my work: identify animal species in data. ) For simplicity, the machine learning model in this repository is restricted to the binary classification problem. (For simplicity, the classification task in this repo is restricted to presence/absence ) Accordingly, the model needs to be trained with a dataset containing records for the presence and absence of the species (cattle not species!) of concern (which is cattle). Additionally, the bigger project which this work is part of has tapir as one species of interest. Since only a handful of raw audio records w/ tapir sounds could be collected, I have performed data augmentation on them, so as to inflate the size of the tapir positive data. This will subsequently be useful for the tapir absence/presence classification problem.
+The broad goal of the project is to understand the interaction between wildlife and domestic animals like cattle, dogs while also exploring the effect of poaching. The machine learning problem in this project pertains to identifying animal species in acoustic data obtained as explained earlier. Ideally, one would expect the model to identify all the species in the given data. However, for simplicity, the classification model in this repository is restricted to presence/absence of one species, which is a binary classification problem. For this purpose, I have focused on cattle. Accordingly, the model needs to be trained with a dataset containing records for the presence and absence of cattle. Additionally, the second problem addressed in this repository is pertains to tapir data. Since only a handful of raw audio records w/ tapir sounds could be collected, I have performed data augmentation on them, so as to inflate the size of the tapir positive dataset. This will potentially be useful for future work on tapir absence/presence classification problem.
 
 ### The insufficient data problem (Data augmentation for tapir)
 
