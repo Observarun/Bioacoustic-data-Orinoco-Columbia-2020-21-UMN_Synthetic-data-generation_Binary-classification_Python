@@ -22,9 +22,9 @@ All coding in this repository has been performed using Python. For writing CNN, 
 
 Acoustic data has been captured using [AudioMoth](https://www.openacousticdevices.info/audiomoth) devices. Each measures $58 \times 48 \times 15$, and is typically hung from a tree at a height of about 4 m. Most data has been recorded in the forests and adjoining cattle ranches in the Orinoquia region (also known as the Eastern Plains) of Columbia, in the period __.
 
-There are millions of audio files, pertaining to wildlife and various disturbances in the form of domestic animals like cattle, dogs, and gunshot sounds. AudioMoth devices were configured to create 10 sec long audio clips. They typically have forest noise in the background, like other animals/birds calls, leaves rustling, twigs snapping as other creatures move around, et cetera. A few thousand of these audio files have been labeled as having cattle sounds present or absent by Juliana, either manually or using pattern recognition tools available online (like Rainforest Connection's Arbimon). For the data augmentation task, as mentioned before, the species of concern is mountain tapir. Only four audio records w/ tapir calls could be obtained from the study site. Consequently, some tapir data collected from Cali Zoo (Zoologico de Cali, Cali, Columbia) were also used.
+There are millions of audio files, pertaining to wildlife and various disturbances in the form of domestic animals like cattle, dogs, and gunshot sounds. AudioMoth devices were configured to create 10 sec long audio clips in FLAC (Free Lossless Audio Codec) or WAV format. They typically have forest noise in the background, like other animals/birds calls, leaves rustling, twigs snapping as creatures move around, et cetera. A few thousand of these audio files have been labeled as having cattle sounds present or absent by Juliana, either manually or using pattern recognition tools available online (like Rainforest Connection's Arbimon). For the data augmentation task, as mentioned before, the species of concern is mountain tapir. Only four audio records w/ tapir calls could be obtained from the study site. Consequently, some tapir data collected from Cali Zoo (Zoologico de Cali, Cali, Columbia) were also used.
 
-In this repository, I have summarised the data in CSV files. In addition, I provide links to the drive containing audio files. This, however, requires requesting access. The sub-folders cattle_pres and cattle_abs under Cattle folder contain these labeled audio files.
+In this repository, I have summarised the data in CSV files. In addition, I provide links to the drive containing audio files. This, however, requires requesting access. The sub-directories cattle_pres and cattle_abs under Cattle directory contain the labeled audio files. Tapir data is under the corresponding directory.
 
 
 <a name="tex"></a>
@@ -32,15 +32,19 @@ In this repository, I have summarised the data in CSV files. In addition, I prov
 
 Python (3)
 
-matplotlib library (link): Module matplotlib.pyplot for creating, displaying, and saving figures/colorplots.
+[matplotlib](https://matplotlib.org/) library (link): Module matplotlib.pyplot for creating, displaying, and saving figures/colorplots.
 
-pathib module: Class pathlib.Path for extracting files out of and exporting/saving files to a drive location.
+[pathib](https://pathlib.readthedocs.io/en/pep428/) module: Class pathlib.Path for extracting files out of and exporting/saving files to a drive location.
 
-pandas library: For working w/ dataframes.
+[pandas](https://pandas.pydata.org/) package: For working w/ dataframes.
 
-pydub: Used in data augmentation. pydub.AudioSegment for extracting samples and metadata from a sound file, splitting an audio file into parts, and merging various files together.
+[Pydub](http://pydub.com/) library: Used in data augmentation. pydub.AudioSegment for extracting samples and metadata from a sound file, splitting an audio file into parts, and merging various files together.
 
-SciPy library: Module scipy.signal for creating spectrogram from an audio file.
+[SciPy](https://scipy.org/) library: Module scipy.signal for creating spectrogram from an audio file.
+
+[OpenSoundscape](http://opensoundscape.org/en/latest/) library: Used for training CNN model with bio-acoustic data.
+
+Pytorch](https://pytorch.org/) framework: Classes and sub-modules of torch.nn module used for writing autoencoder.
 
 
 <a name="exsum"></a>
