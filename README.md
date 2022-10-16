@@ -3,11 +3,11 @@
 
 ## Business Case
 
-Human activity and climate change have been placing ever increasing pressure on biodiversity. A common problem of interest in conservation biology and ecology research is to detect the presesnce of a wildlife species in a region. Acoustic monitoring, which is a technique that uses certain electronic devices to capture animal sounds, is seeing growing use in this context. It facilitates collection of wildlife data in a non-invasive manner continuously and over large areas, while avoiding the heavy cost associated with employing humanpower for manual surveys. However, the large scale data thus generated requires intensive analysis using advanced machine learning or deep learning algorithms.
+Human activity and climate change have been placing ever increasing pressure on biodiversity. A common problem of interest in conservation biology and ecology research is to detect the presence of a wildlife species in a region. Acoustic monitoring, which is a technique that uses certain electronic devices to capture animal sounds, is seeing growing use in this context. It facilitates collection of wildlife data in a non-invasive manner continuously and over large areas, while avoiding the heavy cost associated with employing humanpower for manual surveys. However, the large scale data thus generated requires intensive analysis using advanced machine learning or deep learning algorithms.
 
-I have done this work in collaboration w/ Juliana Velez (github handle), a PhD student in the Fieberg lab (Department of Fisheries, Wildlife, and Conservation Biology) at the University of Minnesota - Twin Cities. I have used convolutional neural networks (CNNs) to classify audio files as having an animal species sound present or absent. Tapir is one of the wildlife species (classified as "Endangered" by IUCN in 1996) that Juliana has collected data for. Owing to insufficient data for tapir, I've also performed data augmentation - generating new audio records from existing ones. Though I have not trained a model for detecting tapir in this repository, this data will be used in subsequent research.
+I have done this work in collaboration w/ Juliana Velez (github handle), a PhD student in the Fieberg lab (Department of Fisheries, Wildlife, and Conservation Biology) at the University of Minnesota - Twin Cities. I have used convolutional neural networks (CNNs) to classify audio files as having an animal species sound present or absent. Tapir is one of the wildlife species (classified as "Endangered" by IUCN in 1996) that Juliana has collected data for. Owing to insufficient data for tapir, I've also performed data augmentation - generating new audio records from existing ones. Though I have not trained a model for detecting tapir in this repository, this data will be used for subsequent research work by Juliana.
 
-All coding in this repository has been performed using Python. For writing CNN, I've used [OpenSoundscape](https://github.com/kitzeslab/opensoundscape) library, which uses PyTorch under the hood. Data augmentation has been performed using SciPy and PyDub libraries.
+All coding in this repository has been performed using Python. For writing CNN, I've used [OpenSoundscape](https://github.com/kitzeslab/opensoundscape) library, which uses PyTorch under the hood. Data augmentation has been performed using SciPy and PyDub libraries. I have also written an autoencoder and a variational autoencoder for pre-processing/augmenting tapir data using pytorch framework.
 
 
 ## Table of Contents
@@ -20,13 +20,11 @@ All coding in this repository has been performed using Python. For writing CNN, 
 <a name="data"></a>
 ## Data
 
-Audio data, device, period, region. 
-
-Acoustic data has been captured using [AudioMoth](https://www.openacousticdevices.info/audiomoth) devices. Each measures $58 \times 48 \times 15$, and is typically hung from a tree at a height of 4 m. Most data has been recorded in the forests and adjoining cattle ranches in the Orinoquia region (also known as the Eastern Plains) of Columbia, in the period __.
+Acoustic data has been captured using [AudioMoth](https://www.openacousticdevices.info/audiomoth) devices. Each measures $58 \times 48 \times 15$, and is typically hung from a tree at a height of about 4 m. Most data has been recorded in the forests and adjoining cattle ranches in the Orinoquia region (also known as the Eastern Plains) of Columbia, in the period __.
 
 There are millions of audio files, pertaining to wildlife and various disturbances in the form of domestic animals like cattle, dogs, and gunshot sounds. AudioMoth devices were configured to create 10 sec long audio clips. They typically have forest noise in the background, like other animals/birds calls, leaves rustling, twigs snapping as other creatures move around, et cetera. A few thousand of these audio files have been labeled as having cattle sounds present or absent by Juliana, either manually or using pattern recognition tools available online (like Rainforest Connection's Arbimon). For the data augmentation task, as mentioned before, the species of concern is mountain tapir. Only four audio records w/ tapir calls could be obtained from the study site. Consequently, some tapir data collected from Cali Zoo (Zoologico de Cali, Cali, Columbia) were also used.
 
-In this repository, I have summarised the data csv files. In addition, I provide links to the drive containing audio files. This, however, requires requesting access. The sub-folders cattle_pres and cattle_abs under Cattle folder contain these labeled audio files.
+In this repository, I have summarised the data in CSV files. In addition, I provide links to the drive containing audio files. This, however, requires requesting access. The sub-folders cattle_pres and cattle_abs under Cattle folder contain these labeled audio files.
 
 
 <a name="tex"></a>
