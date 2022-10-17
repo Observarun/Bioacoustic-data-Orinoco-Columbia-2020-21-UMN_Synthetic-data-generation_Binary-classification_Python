@@ -67,6 +67,8 @@ I have generated new data out of the original tapir recordings using two differe
     <img align="center" src="https://user-images.githubusercontent.com/83636458/194688632-39b7fe1f-4cf9-4c5b-8c48-1a63aa89d4a9.png">
     <em> Spectrogram of an audio clip containing one tapir call </em>
     </p>
+    ![](https://user-images.githubusercontent.com/83636458/194688632-39b7fe1f-4cf9-4c5b-8c48-1a63aa89d4a9.png)
+    *Spectrogram of an audio clip containing one tapir call*
 The spike in frequency as seen fairly localised in time represents a tapir call. I moved the tapir frequency band in time, with each new clip created out of this one having this frequency band at different time instances. I have done this in two different ways, distinction being in the background of the tapir call. (Passive) Next, I describe and give arguments for each.
 
 Bullet point) A model trained with this tapir data will need to isolate the tapir call out of the 5 seconds long clip. Since the training data for tapir presence is sparse, it seems to make sense to have complete silence other than at the instance of the tapir call, which is typically less than a second. In a way, this makes it convenient for the model to isolate the tapir call out of the background. This is the approach I take in the first method - generate records having complete silence in the background of the tapir sound. (Last line first.)
