@@ -63,7 +63,7 @@ Cali Zoo has one tapir enclosure (**check**) and the data is collected using thr
 Juliana was recommended by OpenSounscape developers to use 5 sec long clips for training the model written this framework. Accordingly, I ensured that all the audio clips resulting from the data augmentation procedure are of 5 seconds duration, so that they can be used for subsequent training of a model to detect tapir presence. In my opinion, the recommendation of 5 sec clips is in line with the way CNN model is trained for classification in the [OpenSoundscape tutorial](http://opensoundscape.org/en/latest/tutorials/cnn.html). As can be seen on this webpage, the machine learning classification task is performed sans hyperparameter tuning, which leaves making educated speculations about the parameters of the model. It is intuitively understood that clips of arbitrarily short duration should make it easier for the model to locate the tapir call amid the background, making the performance of a randomly chosen CNN model better. However, model training w/ too short clips is very slow, and 5 seconds offers a good balance.  
 
 I have generated new data out of the original tapir recordings using two different approaches. To understand the mechanism of generating new data out of the existing tapir records, consider the spectrogram (which is a frequency vs time plot created from an audio clip) next.
-    <p align="center">
+    <p>
     <img align="center" src="https://user-images.githubusercontent.com/83636458/194688632-39b7fe1f-4cf9-4c5b-8c48-1a63aa89d4a9.png">
     <em> Spectrogram of an audio clip containing one tapir call </em>
     </p>
