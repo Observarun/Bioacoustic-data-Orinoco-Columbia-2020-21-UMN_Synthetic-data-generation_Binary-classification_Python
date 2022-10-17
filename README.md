@@ -64,8 +64,9 @@ Juliana was recommended by OpenSounscape developers to use 5 sec long clips for 
 
 I have generated new data out of the original tapir recordings using two different approaches. To understand the mechanism of generating new data out of the existing tapir records, consider the spectrogram (which is a frequency vs time plot created from an audio clip) next.
     <p align="center">
-    <img src="https://user-images.githubusercontent.com/83636458/194688632-39b7fe1f-4cf9-4c5b-8c48-1a63aa89d4a9.png">
-    <em align="center"> Spectrogram of an audio clip containing one tapir call </em>
+    <img src="https://user-images.githubusercontent.com/83636458/194688632-39b7fe1f-4cf9-4c5b-8c48-1a63aa89d4a9.png"/>
+        <br>
+        <em> Spectrogram of an audio clip containing one tapir call </em>
     </p>
     ![](https://user-images.githubusercontent.com/83636458/194688632-39b7fe1f-4cf9-4c5b-8c48-1a63aa89d4a9.png)
     *Spectrogram of an audio clip containing one tapir call*
