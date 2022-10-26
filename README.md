@@ -1,7 +1,7 @@
-# Binary Species Classification from Bio-acoustic Data
+# Binary Species Classification and Augmentation from Bio-acoustic Data
 
 
-## Business Case
+## Business Case (or Motivation?)
 
 Human activity and climate change have been placing ever increasing pressure on biodiversity. A common problem of interest in conservation biology and ecology research is to detect the presence of a wildlife species in a region. Acoustic monitoring, which is a technique that uses certain electronic devices to capture animal sounds, is seeing growing use in this context. It facilitates collection of wildlife data in a non-invasive manner continuously and over large areas, while avoiding the heavy cost associated with employing humanpower for manual surveys. However, the large scale data thus generated requires intensive analysis using advanced machine learning or deep learning algorithms.
 
@@ -12,13 +12,13 @@ All coding in this repository has been performed using Python. For writing CNN, 
 
 ## Table of Contents
 
-1. [ Data (Collection/description/set details/etymology!) ](#data)
+1. [ Data ](#data)
 2. [ Technologies ](#tex)
 3. [ Executive Summary ](#exsum)
 
 
 <a name="data"></a>
-## Data
+## Data (Collection/description/set details/etymology!)
 
 Acoustic data has been captured using [AudioMoth](https://www.openacousticdevices.info/audiomoth) devices. Each measures $58 \times 48 \times 15$ mm, and is typically hung from a tree at a height of about 4 m. Most data has been recorded in the forests and adjoining cattle ranches in the Orinoquia region (also known as the Eastern Plains) of Columbia, in the period __.
 
@@ -74,15 +74,15 @@ The spike in frequency as seen fairly localised between 7, 8 sec on time axis re
 
 * In the second approach, I use the guiding principle that the subsequent model for detecting tapir absence/presence should be trained with real data, like would be encountered during the testing phase. Different test files would obviously have various types of background noises in various combinations and orders. Accordingly, I generate new 5 sec clips containing a tapir sound and forest noises in the background. One way to make this project more relevant to the larger community is to use background noises from different landscapes, in the background of tapir calls. However, given the small amount of base data, I have decided to stick with the backgrounds relevant to this project, which, as mentioned before, could be other animals/birds calls, leaves rustling, twigs snapping as creatures move around, et cetera. This still leaves the following question: how to choose the background forest noises of duration $(5 - length$ $of$ $tapir$ $call)$ seconds from the 10 sec long clip? There are indeed various ways, the best and the simplest one, in my opinion, is the following. Use the background from either the first 5 sec or the last 5 sec chunk of the 10 sec raw clip, depending on which one the tapir call happens to be in. To exemplify, if the original 10 seconds audio clip has two tapir calls - one between 3, 4 sec and another between 6, 7 sec, then I use the first tapir sound and the first 5 seconds of the audio to generate 5 clips, with the tapir sound starting at locations 0 sec, 1 sec, 2 sec, 3 sec, 4 sec. And using the tapir sound between 6, 7 sec in the raw clip, I use the section of the audio from 6 to 10 sec to create 5 clips.
 
-#### Coding details
+#### Code specifics
 
-As explained before, I generate new clips in two ways. For silence in background, I generate chunks of silence with silent() class method in pydub.AudioSegment. For each audio file, I create pydub.AudioSegment instance using AudioSegment.from_file('filename'), and extract a chunk of this file from a to b msec using AudioSegment.from_file('filename')[a:b] (**what is it called?!** https://github.com/jiaaro/pydub, https://stackoverflow.com/questions/42060433/python-pydub-splitting-an-audio-file). For saving the clips generated using a particular file, I use the stem property of pathlib.PurePath(filename) instance.
+As explained before, I generate new clips in two ways. For silence in background, I generate chunks of silence with silent() class method in pydub.AudioSegment. For each audio file, I create pydub.AudioSegment instance using AudioSegment.from_file('filename'), and extract a chunk of this file from a to b msec using AudioSegment.from_file('filename')[a:b] (which is similar to slicing a NumPy array). For saving the clips generated using a particular file, I use the stem property of pathlib.PurePath('filename') instance.
 
 ### Spectrograms from audio
 
 Both these methods require the chunk of audio w/ tapir sound to be separated, which requires identifying the temporal location of the tapir sound in the clip. I played (listened to) each record to identify, to within a second, the location of the tapir call, and looked for a discernable pattern within that one second in the corresponding spectrogram. Spectrogram is a frequency vs time representation of an acoustic signal generated using Fourier transformation. Essentially, it is a transformation from amplitude to frequency space.
 
-I create spectrograms using scipy.signal's spectrogram() method, which takes the numpy array, created from Audiosegment object (pydub library) for the corresponding audio file, as an argument. An example can be seen above, such frequency blobs stacked on top of each other typically correspond to a nasal sound.
+I create spectrograms using scipy.signal's spectrogram(). This method takes a numpy array, created from Audiosegment object (pydub library) for the corresponding audio file, as an argument. An example can be seen in the figure above. Such frequency blobs stacked on top of each other typically correspond to a nasal sound from a mammal.
 
 ### Binary classification
 
