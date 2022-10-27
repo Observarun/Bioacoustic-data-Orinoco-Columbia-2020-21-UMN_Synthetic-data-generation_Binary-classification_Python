@@ -86,10 +86,10 @@ At this point, it is worth noting that in this method of data augmentation, I've
 
 ### Code specifics
 
-As explained before, I generate new clips in two ways. For silence in background, I generate chunks of silence with silent() class method in pydub.AudioSegment. For each audio file, I create pydub.AudioSegment instance using AudioSegment.from_file('filename'), and extract a chunk of this file from a to b msec using AudioSegment.from_file('filename')[a:b] (which is similar to slicing a NumPy array). For saving the clips generated using a particular file, I use the stem property of pathlib.PurePath('filename') instance.
+As explained before, I generate new clips in two ways. For silence in background, I generate chunks of silence with silent() class method of AudioSegment. For each audio file, I create an AudioSegment instance using from_file('filename') class method, and extract a chunk of this clip from a to b msec using [a:b] (similar to slicing a NumPy array). For naming new clips generated using a particular clip, I use the stem property of PurePath('existing_clip_name') instance.
 
-I create spectrograms using scipy.signal's spectrogram(). This method takes a numpy array, created from Audiosegment object (pydub library) for the corresponding audio file, as an argument. An example can be seen in the figure above. Such frequency blobs stacked on top of each other typically correspond to a nasal sound from a mammal.
+I create spectrograms using scipy.signal's spectrogram(). This method takes a numpy array, created from Audiosegment object for the corresponding audio file, as an argument. An example can be seen in the figure above. Such frequency blobs stacked on top of each other typically correspond to a nasal sound from a mammal.
 
 ### Binary classification
 
-These constitute the labeled data for cattle presence/absence problem. The idea is to use this labelled audio data for training the model. Since CNNs work with image data, audio files are to be converted to frequency vs time spectrogram like images. Tune learning rate, batch size. To make this model relevant for tapir data, tune # epochs too since don't have a stopping criterion (no validation set).
+Labeled data for cattle presence/absence problem. The idea is to use this labelled audio data for training the model. Since CNNs work with image data, audio files are to be converted to frequency vs time spectrogram like images. Tune learning rate, batch size. To make this model relevant for tapir data, tune # epochs too since don't have a stopping criterion (no validation set).
