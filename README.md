@@ -7,7 +7,7 @@ Human activity and climate change have been placing ever increasing pressure on 
 
 I have done this work in collaboration w/ [Juliana Velez](github handle), a PhD student in the Fieberg Lab (PI: [John Fieberg](github handle), Department of Fisheries, Wildlife, and Conservation Biology) at the University of Minnesota - Twin Cities. I have used convolutional neural networks (CNNs) to classify audio files as having an animal species sound present or absent. Tapir is one of the wildlife species (classified as "Endangered" by IUCN in 1996) that Juliana has collected data for. Owing to insufficient data for tapir, I've also performed data augmentation - generating new data using existing base dataset. Though I do not train a model for detecting tapir in this repository, this will be done for subsequently, and new data will be useful for that.
 
-All coding in this repository has been performed using Python. For writing CNN, I've used [OpenSoundscape](https://github.com/kitzeslab/opensoundscape) library, which uses pytorch under the hood. Data augmentation has been performed using SciPy and PyDub libraries. I have also written an autoencoder and a variational autoencoder for pre-processing/augmenting tapir data using PyTorch framework.
+All coding in this repository has been performed using Python. For writing CNN, I've used [OpenSoundscape](https://github.com/kitzeslab/opensoundscape) library, which uses PyTorch under the hood. Data augmentation has been performed using SciPy and PyDub libraries. I have also written a variational autoencoder for pre-processing/augmenting tapir data using PyTorch framework.
 
 
 ## Table of Contents
