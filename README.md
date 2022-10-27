@@ -44,7 +44,7 @@ In this repository, I have summarised the cattle data in CSV files. In addition,
 
 [OpenSoundscape](http://opensoundscape.org/en/latest/) framework: Corresponding library used for coding CNN models to analyse bio-acoustic data.
 
-[Pytorch](https://pytorch.org/) framework: Classes and sub-modules of torch.nn module used for writing variational autoencoder.
+[Pytorch](https://pytorch.org/) framework: Classes and sub-modules of torch.nn used for writing variational autoencoder.
 
 
 <a name="exsum"></a>
@@ -52,9 +52,9 @@ In this repository, I have summarised the cattle data in CSV files. In addition,
 
 The broad goal of the project is to understand the interaction between wildlife and domestic animals like cattle, dogs while also exploring the effect of poaching through gunshots. The machine learning problem in this project pertains to identifying animal species in acoustic data collected as explained earlier. Ideally, one would expect the model to identify all the species in the given data. However, for simplicity, the classification model in this repository is restricted to presence/absence of one species, which is a binary classification problem. For this purpose, I have focused on cattle. Accordingly, the model needs to be trained with a dataset containing records for the presence and absence of cattle. Additionally, the second problem addressed in this repository pertains to tapir data. Since only a handful of raw audio records w/ tapir sounds could be collected, I have performed data augmentation on them, so as to inflate the size of the tapir positive dataset. This will potentially be useful for future work on tapir absence/presence classification modelling problem.
 
-### The insufficient data problem (change to Data augmentation for tapir?)
+### Problems with sparse tapir data
 
-As stated before, tapir data will be relevant for futur work involving ML modelling for identifying tapir presence/absence in the audio. Since there were four audio files from the study site containing five tapir calls in all, this was certainly insufficient to train the model. Further, the five tapir sounds I had were not all distinct. From literature reivew (**reference required**), I found that there are more types of tapir calls. While it's possible to generate new records using the existing ones, such data augmentation will not solve the representativeness problem just described. Accordingly, I requested the Fieberg Lab to include some of the tapir audio records obtained from the Cali Zoo.
+As stated before, tapir data will be relevant for future work involving ML modelling for identifying tapir presence/absence in the audio. Since there were four audio files from the study site containing five tapir calls in all, this was certainly insufficient to train the model. Further, the five tapir sounds I had were not all distinct. From [literature](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8065771/), I found that there are more types of tapir calls. While it's possible to generate new records using the existing ones, such data augmentation will not solve the representativeness problem just described. Accordingly, I requested the Fieberg Lab to include some of the tapir audio records obtained from the Cali Zoo.
 
 Cali Zoo has one tapir enclosure (**check**) and the data is collected using three AudioMoth devices. Though these are placed at different locations, their range is long enough to capture tapir sounds from the enclosure. Each of them records and saves audio clips at various times of the day. The clips recorded by two or more AudioMoths at a particular time of the day have the same tapir sound, but with different background on account of their local neighbourhood. While this brings in much more tapir data, for the purpose of representativeness problem discussed in the last paragraph, the number of relevant new clips is just the 'union' of the clips from the 3 AudioMoths (each clip used exactly once). This increased the number of tapir files in the base dataset (which is used to generate extra recordings) to 18.
 
