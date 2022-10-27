@@ -44,7 +44,7 @@ In this repository, I have summarised the cattle data in CSV files. In addition,
 
 [OpenSoundscape](http://opensoundscape.org/en/latest/) framework: Corresponding library used for coding CNN models to analyse bio-acoustic data.
 
-[Pytorch](https://pytorch.org/) framework: Classes and sub-modules of torch.nn module used for writing autoencoder.
+[Pytorch](https://pytorch.org/) framework: Classes and sub-modules of torch.nn module used for writing variational autoencoder.
 
 
 <a name="exsum"></a>
