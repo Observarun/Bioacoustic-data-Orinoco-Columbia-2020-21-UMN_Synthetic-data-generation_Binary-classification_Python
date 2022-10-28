@@ -92,4 +92,10 @@ I create spectrograms using spectrogram() method of scipy.signal module. This me
 
 ### Binary classification
 
-Labeled data for cattle presence/absence problem. The idea is to use this labelled audio data for training the model. Since CNNs work with image data, audio files are to be converted to frequency vs time spectrogram like images. Tune learning rate, batch size. To make this model relevant for tapir data, tune # epochs too since don't have a stopping criterion (no validation set).
+Labeled data for cattle presence/absence problem. The idea is to use this labelled audio data for training the model.
+
+Since CNNs work with image data, audio files are to be converted to frequency vs time spectrogram like images.
+
+Tune learning rate, batch size. To make this model relevant for tapir data, tune # epochs too since don't have a stopping criterion (no validation set).
+
+1D ConvNet can be used directly on acoustic waveform, however, [shown to perform at best as good](https://arxiv.org/abs/1610.00087) as 2D ConvNets using spectrogram inputs
