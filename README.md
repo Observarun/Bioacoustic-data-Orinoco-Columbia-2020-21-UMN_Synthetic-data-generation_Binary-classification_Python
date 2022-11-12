@@ -84,7 +84,7 @@ At this point, it is worth noting that in this method of data augmentation, I've
 
 ### Variational autoencoder
 
-Variational autoencoder is a neural network based generative (in that it attempts to identify the structur of the data so as to simulate the data generation process), unsupervised (in that it doesn't require class labels for training) algorithm.
+Variational autoencoder is a neural network based generative (in that it attempts to identify the structure of the data so as to simulate the data generation process), unsupervised (in that it doesn't require class labels for training) algorithm. It has two neural networks, encoder and decoder. Encoder applies a set of non-linear transformations to the input data to generate a latent vector, which is a lower dimensional representation of a data point. (The space of the latent vector is called the latent space.)
 
 ### Code specifics
 
