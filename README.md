@@ -84,7 +84,7 @@ At this point, it is worth noting that in this method of data augmentation, I've
 
 ### Variational autoencoder
 
-Variational autoencoder is a neural network based generative (in that it attempts to identify the structure of the data so as to simulate the data generation process), unsupervised (in that it doesn't require class labels for training) algorithm. It has two neural networks, encoder and decoder. Encoder applies a set of non-linear transformations to the input data to generate a latent vector, which is a lower dimensional representation of a data point. (The space of the latent vector is called the latent space.)
+Variational autoencoder is a neural network based generative (in that it attempts to identify the structure of the data so as to simulate the data generation process), unsupervised (in that it doesn't require class labels for training) algorithm. Consider a neural network that applies a set of non-linear transformations to the input data (to reduce its dimension) and maps it to a probability distribution, from which a latent vector is sampled. This ensures that the latent space is continuous (as against a standard autoencoder, where input data is deterministically mapped to the latent space). Further, Kullback-Leibler divergence is used to penalises the distribution for deviating from standard Gaussian enforcing the requirement that the variance should be close to identity matrix and mean should be small.
 
 ### Code specifics
 
