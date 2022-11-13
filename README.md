@@ -93,9 +93,9 @@ At this point, it is worth noting that in this method of data augmentation, I've
 Variational autoencoder is a neural network based generative (in that it attempts to identify the structure of the data so as to simulate the data generation process), unsupervised (in that it doesn't require class labels for training) algorithm. It was proposed by [Kingma and Welling in 2013](https://doi.org/10.48550/arXiv.1312.6114). Consider a neural network that applies a set of non-linear transformations to the input data (to reduce its dimension) and maps it to a probability distribution, from which a latent vector is sampled. This network is an encoder. Another neural network, a decoder, then maps the latent vector back to the original input space using non-linear transformations. Essentially, the encoder compresses the data while the decoder decompresses it.
 
     <p align="center">
-    <img src="https://avandekleut.github.io/assets/vae/variational-autoencoder.png"/>
+    <img src="https://github.com/Observarun/Juliana-audio-data-augmentation-binary-classification-python/issues/2#issue-1446765257"/>
         <br>
-        <em> Spectrogram of an audio clip containing one tapir call </em>
+        <em> Representation of a variational autoencoder. Image sourced from [internet](https://avandekleut.github.io/vae/) </em>
     </p>
 
 As stated before, the input data is encoded as distribution over latent space random variable. The latent space thus obtained is continuous (as opposed to vae's architectural cousin - an autoencoder - where input data is deterministically mapped to the latent space). Further, one of the loss functions to be minimised during training is Kulback-Leibler divergence, which also penalises the distribution for deviating from standard Gaussian. This effectively enforces the requirement that the variance should be close to an identity matrix and mean should be small. This makes the generative process possible.
