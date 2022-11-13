@@ -84,7 +84,9 @@ At this point, it is worth noting that in this method of data augmentation, I've
 
 ### Variational autoencoder
 
-Variational autoencoder is a neural network based generative (in that it attempts to identify the structure of the data so as to simulate the data generation process), unsupervised (in that it doesn't require class labels for training) algorithm. Consider a neural network that applies a set of non-linear transformations to the input data (to reduce its dimension) and maps it to a probability distribution, from which a latent vector is sampled. This ensures that the latent space is continuous (as against a standard autoencoder, where input data is deterministically mapped to the latent space). Further, Kullback-Leibler divergence is used to penalises the distribution for deviating from standard Gaussian enforcing the requirement that the variance should be close to identity matrix and mean should be small.
+Variational autoencoder is a neural network based generative (in that it attempts to identify the structure of the data so as to simulate the data generation process), unsupervised (in that it doesn't require class labels for training) algorithm. Consider a neural network that applies a set of non-linear transformations to the input data (to reduce its dimension) and maps it to a probability distribution, from which a latent vector is sampled. This network is an encoder. Another neural network, a decoder, then maps the latent vector back to the original input space using non-linear transformations. Essentially, the encoder compresses the data while the decoder decompresses it.
+
+As stated before, the input data is encoded as distribution over latent vectors. The latent space thus obtained is continuous (as opposed to vae's architectural cousin - an autoencoder - where input data is deterministically mapped to the latent space). Further, Kullback-Leibler divergence is used to penalise the distribution for deviating from standard Gaussian enforcing the requirement that the variance should be close to identity matrix and mean should be small.
 
 ### Code specifics
 
