@@ -108,7 +108,9 @@ Let's call the latent random variable $z$. Suppose the encoded distribution is $
 
 #### Code specifics
 
-Raw audio clips have 19 tapir sounds. 19 data points, however, are abysmally low to train a DNN. Accordingly, my base dataset for generating synthetic spectrogram images is based on controlled audio augmentation with background, which was discussed above. Both encoder and decoder part of the algorithm contain neural network layers. Since I'm working with images, I use convolution and pooling layers for changing spatial resolution of the data.
+Raw audio clips have 19 tapir sounds. 19 data points, however, are abysmally low to train a DNN. Accordingly, my base dataset for generating synthetic spectrogram images is based on controlled audio augmentation with background, which was discussed above. Both encoder and decoder part of the algorithm contain neural network layers. Since I'm working with images, I have employed an architecture containing convolution and pooling layers for changing spatial resolution of the data. For spatially connected data, these layers are superior to a network of fully connected layers for a number of reasons, which I discuss next.
+
+For an image with $ \sim ~ 10^2 ~ \cross ~ 10^2 $ pixels, a fully connected network with $100$ nodes in the hidden layers would have $\sim ~ 10^10$ (or $10$ billion) parameters! In a convolution layer, on the other hand, each neuron connects to only its receptive field. In simpler terms, a pixel in any layer is connected to only a local group of pixel in the previous layer. This sparse connectivity is reasonable, because of locality - nearby pixels are expected to be more informative than a grouping of distant pixels. Weight sharing. Invariances through pooling layer.
 
 ### Binary classification
 
