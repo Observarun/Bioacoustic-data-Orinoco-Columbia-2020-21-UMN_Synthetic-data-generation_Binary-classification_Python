@@ -108,7 +108,7 @@ Let's call the latent random variable $z$. Suppose the encoded distribution is $
 
 #### Code specifics
 
-Both encoder and decoder part of the algorithm contain neural networks layers. 
+Raw audio clips have 19 tapir sounds. 19 data points, however, are abysmally low to train a DNN, my base dataset for generating synthetic spectrogram images is based on controlled audio augmentation with background, as discussed above. Both encoder and decoder part of the algorithm contain neural networks layers. Since I'm working with spectrogram images, 
 
 ### Binary classification
 
