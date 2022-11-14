@@ -100,7 +100,7 @@ Variational autoencoder is a neural network based generative (in that it attempt
     <p align="center">
     <img src="https://user-images.githubusercontent.com/83636458/201551679-1d44e831-d8a4-4165-96ca-5bc10abef688.png"/>
         <br>
-        <em> Representation of a variational autoencoder. Image sourced from [internet](hhttps://avandekleut.github.io/assets/vae/variational-autoencoder.png) </em>
+        <em> Representation of a variational autoencoder. Image sourced from [internet](https://avandekleut.github.io/assets/vae/variational-autoencoder.png) </em>
     </p>
 As stated before, the input data is encoded as distribution over latent space random variable. The latent space thus obtained is continuous (as opposed to vae's architectural cousin - an autoencoder - where input data is deterministically mapped to the latent space). Further, one of the loss functions to be minimised during training is Kulback-Leibler divergence, which also penalises the distribution for deviating from standard Gaussian. This effectively enforces the requirement that the variance should be close to an identity matrix and mean should be small. This makes the generative process possible.
 
