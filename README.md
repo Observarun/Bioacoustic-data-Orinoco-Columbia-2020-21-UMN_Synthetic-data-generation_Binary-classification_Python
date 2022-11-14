@@ -1,4 +1,4 @@
-# Binary Species Classification and Augmentation from Bio-acoustic Data
+# Binary Species Classification and Augmentation using Bio-acoustic Data
 
 
 ## Business Case (or Motivation?)
