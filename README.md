@@ -15,13 +15,13 @@ All coding in this repository has been performed using Python. <!--For writing C
 
 1. [ Data ](#data)
 2. [ Technologies ](#tex)
-<!---3. [ Executive Summary ](#exsum)--->
 3. [ Summary ](#sum)
 
 
 
 <a name="data"></a>
-## Data (Collection/description/set details/etymology!)
+<!--## Data (Collection/description/set details/etymology!)-->
+## Data
 
 Acoustic data has been captured using [AudioMoth](https://www.openacousticdevices.info/audiomoth) devices. Each measures $58 \times 48 \times 15$ mm, and is typically hung from a tree at a height of about 4 m. Most data has been recorded in the forests and adjoining cattle ranches in the Orinoquia region (also known as the Eastern Plains) of Columbia, in the period 2020-21.
 
