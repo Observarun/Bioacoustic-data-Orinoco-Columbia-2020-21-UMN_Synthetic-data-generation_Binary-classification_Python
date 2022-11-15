@@ -15,7 +15,9 @@ All coding in this repository has been performed using Python. <!--For writing C
 
 1. [ Data ](#data)
 2. [ Technologies ](#tex)
-3. [ Executive Summary ](#exsum)
+<!--3. [ Executive Summary ](#exsum)
+3. [ Summary ](#sum)-->
+
 
 
 <a name="data"></a>
@@ -50,8 +52,10 @@ In this repository, I have summarised the data in CSV files. In addition, I prov
 <!--[OpenSoundscape](http://opensoundscape.org/en/latest/) framework: Corresponding library used for coding CNN models to analyse bio-acoustic data.-->
 
 
-<a name="exsum"></a>
-## Executive Summary (or Work summary...)
+<!--<a name="exsum"></a>-->
+<!--## Executive Summary (or Work summary...)-->
+<a name="sum"></a>
+## Summary
 
 The broad goal of the project is to understand the interaction between wildlife and domestic animals like cattle, dogs while also exploring the effect of poaching through gunshots. The machine learning problem in this project pertains to identifying animal species in acoustic data collected as explained earlier. Since deep learning algorithms require a significant amount of training data, there is also a scope of generating synthetic data points for the species which there are insufficient audio clips for.
 
