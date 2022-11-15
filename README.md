@@ -16,7 +16,7 @@ All coding in this repository has been performed using Python. <!--For writing C
 1. [ Data ](#data)
 2. [ Technologies ](#tex)
 3. [ Summary ](#sum)
-    3.1 [ Spectrogram ](#spec)
+4. [ Spectrogram ](#spec)
 
 
 
@@ -62,6 +62,7 @@ The broad goal of the project is to understand the interaction between wildlife 
 
 Ideally, one would expect the model to identify all the species in the given data. However, for simplicity, the classification model in this repository is restricted to presence/absence of one species, which is a binary classification problem. For this purpose, I have focused on cattle. Accordingly, the model needs to be trained with a dataset containing records for the presence and absence of cattle. Here, a 2-dimensional convolutional network is used for this purpose, which performs best on data with spatial features. In an image, nearby pixels are usually related to each other thereby making spectrograms relevant for use w/ a CNN. Additionally, the second problem addressed in this repository pertains to tapir data. Since only a handful of raw audio records w/ tapir sounds could be collected, data augmentation needs to be performed on them, so as to inflate the size of the tapir positive/presence dataset. I have done this using two methods, at the level of audio signals and at the level of spectrograms. This will potentially be useful for future work on tapir absence/presence classification modelling problem.
 
+<a name="spec"></a>
 ### Spectrogram
 
 A common approach to working with sounds (e.g., in speech recognition) is to generate a spectrogram, which is a diagram showing how frequency varies with time (i.e., a frequency vs time plot) in an acoustic signal. Essentially, it is a Fourier transformation from amplitude to frequency space. For the problems in this repository, the goal is not to identify a sequence of letters from a sound (which is so in speech recognition), nevertheless spectrograms offer a very useful starting point.
