@@ -16,9 +16,10 @@ All coding in this repository has been performed using Python. <!--For writing C
 1. [ Data ](#data)
 2. [ Technologies ](#tex)
 3. [ Summary ](#sum)
+
+ 3.1 [ Spectrogram ](#spec)
     
-    3.1 [ Spectrogram ](#spec)
-        3.1.1 [ Code specifics ](#speccode)
+  3.1.1 [ Code specifics ](#speccode)
 
 
 
