@@ -19,7 +19,7 @@ All coding in this repository has been performed using Python. <!--For writing C
     
     3.1 [ Spectrogram ](#spec)
     
-        3.1.1 [ Code specifics ](#code)
+        3.1.1 [ Code specifics ](#speccode)
 
 
 
@@ -70,6 +70,7 @@ Ideally, one would expect the model to identify all the species in the given dat
 
 A common approach to working with sounds (e.g., in speech recognition) is to generate a spectrogram, which is a diagram showing how frequency varies with time (i.e., a frequency vs time plot) in an acoustic signal. Essentially, it is a Fourier transformation from amplitude to frequency space. For the problems in this repository, the goal is not to identify a sequence of letters from a sound (which is so in speech recognition), nevertheless spectrograms offer a very useful starting point.
 
+<a name="speccode"></a>
 #### Code specifics
 
 I created spectrograms using spectrogram() method of scipy.signal module. This method takes a numpy array, created from Audiosegment object for the corresponding audio file, as an argument. An example can be seen in the figure below. Such frequency blobs stacked on top of each other typically correspond to a nasal sound from a mammal.
