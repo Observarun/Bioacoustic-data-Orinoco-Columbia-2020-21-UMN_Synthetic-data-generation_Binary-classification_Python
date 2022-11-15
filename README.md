@@ -15,9 +15,9 @@ All coding in this repository has been performed using Python. <!--For writing C
 
 1. [ Data ](#data)
 2. [ Technologies ](#tex)
-3. [ Summary ](#sum)
- 3.1 [ Spectrogram ](#spec)
-  3.1.1 [ Code specifics ](#speccode)
+3. [ Introduction ](#intro)
+4. [ Spectrogram ](#spec)
+5. [ Code specifics ](#speccode)
 
 
 
@@ -56,30 +56,30 @@ In this repository, I have summarised the data in CSV files. In addition, I prov
 
 <!--<a name="exsum"></a>-->
 <!--## Executive Summary (or Work summary...)-->
-<a name="sum"></a>
-## Summary
+<a name="intro"></a>
+## Introduction
 
 The broad goal of the project is to understand the interaction between wildlife and domestic animals like cattle, dogs while also exploring the effect of poaching through gunshots. The machine learning problem in this project pertains to identifying animal species in acoustic data collected as explained earlier. Since deep learning algorithms require a significant amount of training data, there is also a scope of generating synthetic data points for the species which there are insufficient audio clips for.
 
 Ideally, one would expect the model to identify all the species in the given data. However, for simplicity, the classification model in this repository is restricted to presence/absence of one species, which is a binary classification problem. For this purpose, I have focused on cattle. Accordingly, the model needs to be trained with a dataset containing records for the presence and absence of cattle. Here, a 2-dimensional convolutional network is used for this purpose, which performs best on data with spatial features. In an image, nearby pixels are usually related to each other thereby making spectrograms relevant for use w/ a CNN. Additionally, the second problem addressed in this repository pertains to tapir data. Since only a handful of raw audio records w/ tapir sounds could be collected, data augmentation needs to be performed on them, so as to inflate the size of the tapir positive/presence dataset. I have done this using two methods, at the level of audio signals and at the level of spectrograms. This will potentially be useful for future work on tapir absence/presence classification modelling problem.
 
 <a name="spec"></a>
-### Spectrogram
+## Spectrogram
 
 A common approach to working with sounds (e.g., in speech recognition) is to generate a spectrogram, which is a diagram showing how frequency varies with time (i.e., a frequency vs time plot) in an acoustic signal. Essentially, it is a Fourier transformation from amplitude to frequency space. For the problems in this repository, the goal is not to identify a sequence of letters from a sound (which is so in speech recognition), nevertheless spectrograms offer a very useful starting point.
 
 <a name="speccode"></a>
-#### Code specifics
+### Code specifics
 
 I created spectrograms using spectrogram() method of scipy.signal module. This method takes a numpy array, created from Audiosegment object for the corresponding audio file, as an argument. An example can be seen in the figure below. Such frequency blobs stacked on top of each other typically correspond to a nasal sound from a mammal.
 
-### Problems with sparse tapir data
+## Problems with sparse tapir data
 
 As stated before, tapir data will be relevant for future work involving ML modelling for identifying tapir presence/absence in the audio. Since there were four audio files from the study site containing five tapir calls in all, this was certainly insufficient to train the model. Further, the five tapir sounds I had were not all distinct. From [literature](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8065771/), I found that there are more types of tapir calls. While it's possible to generate new records using the existing ones, such data augmentation will not solve the representativeness problem just described. Accordingly, I requested the Fieberg Lab to include some of the tapir audio records obtained from the Cali Zoo.
 
 Cali Zoo has one tapir enclosure (**confirm!**) and the data is collected using three AudioMoth devices. Though these are placed at different locations, their range is long enough to capture tapir sounds from the tapir enclosure. Each of them records and saves audio clips at various times of the day. The clips recorded by two or more AudioMoths at a particular time of the day have the same tapir sound, but with different background on account of the location of each AudioMoth device. While this brings in much more tapir data, for the purpose of representativeness problem discussed in the last paragraph, the number of relevant new clips is just the 'union' of the clips from the 3 AudioMoths (each clip used exactly once). This increased the number of tapir files in the base dataset (which is used to generate new data) to 10.
 
-### Generating synthetic audio clips
+## Generating synthetic audio clips
 
 Juliana was recommended by OpenSounscape developers to use 5 sec long clips for training the model written using this framework. Accordingly, I ensured that all the audio clips resulting from the data augmentation procedure are of 5 seconds duration, so that they can be used for subsequent training of a model to detect tapir presence. In my opinion, the recommendation of 5 sec clips is in line with the way convolutional network is trained for classification in the OpenSoundscape's [CNN tutorial](http://opensoundscape.org/en/latest/tutorials/cnn.html). As can be seen on this webpage, the machine learning classification task is performed sans hyperparameter tuning, which leaves making educated speculations about certain parameters of the model (e.g., batch size). (At this point, it is worth mentioning that OpSo does have a default implementation of learning rate scheduling in the form of stair case delay. Learning rate is multiplied by a cooling factor of $.7$ every $10$ epochs. The [advanced tutorial](http://opensoundscape.org/en/latest/tutorials/cnn_training_advanced.html) also shows a way to modify the scheduling by changing the cooling factor.) It is intuitively understood that clips of arbitrarily short duration should make it easier for the model to locate the tapir call amid the background, making the performance of a randomly chosen CNN model better. However, model training w/ too short clips is very slow, and 5 seconds offers a good balance.
 
@@ -97,15 +97,15 @@ The spike in frequency as seen fairly localised between 7, 8 sec on time axis re
 
 Both these methods require the chunk of audio w/ tapir sound to be separated out of the 10 sec long audio signal, which requires identifying the temporal location of the tapir sound in the clip. I played (listened to) each record to identify, to within a second, the location of the tapir call, and looked for a discernable pattern within that one second in the corresponding spectrogram.
 
-#### Code specifics
+### Code specifics
 
 As explained before, I have generated synthetic audio clips in two ways. For silence in background, I generated chunks of silence with silent() class method of AudioSegment. For each audio file, I created an AudioSegment instance using from_file('filename') class method, and extracted a chunk of this clip from a to b msec using [a:b] (similar to slicing a NumPy array). For naming new clips generated using a particular clip, I used the stem property of PurePath('existing_clip_name') instance.
 
-### An alternative - controlled spectrogram augmentation
+## An alternative - controlled spectrogram augmentation
 
 At this point, it is worth noting that in this method of data augmentation, I've worked at the level of audio clips. It is equally possible to enhance the dataset using spectrograms corresponding to the audio clips in the base dataset. Since the spectrogram is a pictorial frequency vs time representation, this involves working with images. One advantage of working with spectrograms in a controlled manner is that both frequency band and time duration of tapir sound are accessible. Such an analysis can be found in the [literature](https://arxiv.org/abs/1904.08779), and exploits both frequency-masking and time-masking. In this repository, I choose to not perform controlled augmentation of spectrogram data since the analysis goes on similar lines as audio augmentation. However, in the next section, I explore the viability of a state of the art deep learning algorithm for enhancing tapir present spectrogram data. This could be useful for those in the larger community who want to do modelling starting from spectrogram images.
 
-### Variational autoencoder to generate synthetic spectrogram images
+## Variational autoencoder to generate synthetic spectrogram images
 
 Variational autoencoder is a neural network based generative (in that it attempts to identify the structure of the data so as to simulate the data generation process), unsupervised (in that it doesn't require class labels for training) algorithm. It was proposed by [Kingma and Welling in 2013](https://doi.org/10.48550/arXiv.1312.6114).
 
@@ -121,7 +121,7 @@ As stated before, the input data is encoded as distribution over latent space ra
 
 Let's call the latent random variable $z$. Suppose the encoded distribution is $q_\phi(z|x)$, where $x$ is the training data. Hence, $q_\phi(z|x)$ corresponds to the encoder. Decoder is the likelihood $p_\theta(x|z)$, where $\theta$ represents the parameters of the model. $q_\phi(z|x)$ is the variational approximation to the posterior of the model, and accordingly, $\phi$ represents the variational parameters. Posterior distribution is initially represented by a prior $p(z)$ (which is assumed to be a unit normal distribution N(0,1)), that will be subsequently updated. As mentioned earlier, the latent random variable is sampled from the encoded distribution, i.e. $z ~ \sim ~ q_\phi(z|x)$. This makes the gradient calculation one of the terms in KL divergence (which is required during backpropagation) cumbersome. To overcome this, the authors proposed a reparametrisation trick, which involves expressing the random variable $z$ as a deterministic variable. If it is assumed that the posterior is approximately normal, then so would the variational approximation to the posterior $(q_\phi(z|x))$ be. In this case, the reparameterised latent vector can be represented as $z ~ = ~ \mu ~ + ~ \sigma \cdot \epsilon$, where $\epsilon$ is an auxillary noise variable $\epsilon ~ \sim ~ N(0,1)$.
 
-#### Architecture of variational autoencoder
+### Architecture of variational autoencoder
 
 Both encoder and decoder part of the algorithm contain neural network layers. Since I'm working with images, I have employed an architecture containing convolution and pooling layers for changing spatial resolution of the data. For spatially connected data, these layers are superior to a network of fully connected layers for a number of reasons, which I discuss next.
 
@@ -131,7 +131,7 @@ In the context of vision architectures, the weights in question are typically ar
 
 The fact that the weights in the filter are learnt during training is what makes convnets so powerful. Essentially, what features are to be extracted are learnt by the algorithm. The feature maps generated by the convolution layer are further passed through a pooling layer. Its purpose is to reduce the size (or dimensionality) of the feature maps. It summarises the features in the input, through averaging, or selecting maximum of each section, et cetera. This has a very important consequence - invariance. While in the original image, the location or orientation of the subject might have been relevant, the summarised feature map is invariant to translation/rotation/deformation.
 
-#### Code specifics
+### Code specifics
 
 Raw audio clips have just 19 tapir sounds. This few data points, however, are abysmally low to train a DNN. Hence, my base dataset for generating synthetic spectrogram images comes from the controlled audio augmentation with background, which was discussed above. Accordingly, I have 95 spectrogram images, which I perform data augmentation on. Using these images, I create an instance of ImageFolder (torchvision library), while transforming them to tensor (which PyTorch works with). ImageFolder instance is further used to create DataLoder instance, which is how data is fed to a PyTorch model.
 
@@ -141,7 +141,7 @@ The loss function I've used is the sum of binary cross entropy and KL divergence
 
 There are two ways to use variational autoencoder in the validation phase. One is to use the probability distribution of the input image dataset learnt during training phase to reconstruct the images. The other is to pass Gaussian distribution to the decoder and generate new images. The distribution being passed is the latent random variable, and is exactly Gaussian, as against the learnt distribution which would be approximately Gaussian. Accordingly, the latter approach is less accurate, and should produce images somewhat different from the original ones.
 
-### Binary classification
+## Binary classification
 
 Labeled data for cattle presence/absence problem. The idea is to use this labelled audio data for training the model.
 
