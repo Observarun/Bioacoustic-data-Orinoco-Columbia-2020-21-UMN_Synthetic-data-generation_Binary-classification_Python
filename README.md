@@ -42,9 +42,11 @@ In this repository, I have summarised the data in CSV files. In addition, I prov
 
 [SciPy](https://scipy.org/) library: Module scipy.signal for creating spectrogram from an audio file.
 
-<!---[OpenSoundscape](http://opensoundscape.org/en/latest/) framework: Corresponding library used for coding CNN models to analyse bio-acoustic data.--->
+[torch](https://pypi.org/project/torch/) library : Classes and sub-modules of torch.nn used for writing variational autoencoder; part of [PyTorch](https://pytorch.org/) framework.
 
-[Pytorch](https://pytorch.org/) framework: Classes and sub-modules of torch.nn used for writing variational autoencoder.
+[torchvision](https://pytorch.org/vision/stable/index.html) library: Classes of datasets and transforms modules for transforming the dataset to a form accessible for pytorch. 
+
+<!---[OpenSoundscape](http://opensoundscape.org/en/latest/) framework: Corresponding library used for coding CNN models to analyse bio-acoustic data.--->
 
 
 <a name="exsum"></a>
