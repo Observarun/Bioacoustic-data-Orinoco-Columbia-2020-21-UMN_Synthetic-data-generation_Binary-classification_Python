@@ -18,6 +18,8 @@ All coding in this repository has been performed using Python. <!--For writing C
 3. [ Summary ](#sum)
     
     3.1 [ Spectrogram ](#spec)
+    
+        3.1.1 [ Code specifics ](#code)
 
 
 
