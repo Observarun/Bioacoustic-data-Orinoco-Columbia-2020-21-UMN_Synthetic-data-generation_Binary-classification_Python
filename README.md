@@ -139,7 +139,7 @@ The architecture I use for an encoder is a set of $6$ layers, each containing a 
 
 The loss function I've used is the sum of binary cross entropy and KL divergence. I used Adam optimiser (which offers a modified form of gradient descent). I experimented with learning rates of $10^{-3}$, $10^{-4}$, $10^{-5}$, and settled with the last one. I experimented with the batch size of 32 and 64, and settled with the former/latter.
 
-There are two ways to use variational autoencoder in the validation phase. One is to use the probability distribution of the input image dataset learnt during training phase to reconstruct the images. The other is to pass Gaussian distribution to the decoder and generate new images. The distribution being passed is the latent random variable, and is exactly Gaussian, as against the learnt distribution which would be approximately Gaussian. Accordingly, the latter approach is less accurate, and should produce images somewhat different from the original ones.
+There are two ways to use variational autoencoder in the validation phase. One is to use the probability distribution of the input image dataset learnt during training phase to reconstruct the images. The other is to pass Gaussian distribution to the decoder and generate synthetic images. The distribution being passed is for the latent random variable, and is exactly Gaussian, as against the learnt distribution which would be approximately Gaussian. Accordingly, the latter approach generates images somewhat different from the original ones.
 
 ## Binary classification
 
