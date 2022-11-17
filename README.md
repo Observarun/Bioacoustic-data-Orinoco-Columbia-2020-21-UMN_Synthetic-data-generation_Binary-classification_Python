@@ -66,7 +66,9 @@ Ideally, one would expect the model to identify all the species in the given dat
 <a name="spec"></a>
 ## Spectrogram
 
-A common approach to working with sounds (e.g., in speech recognition) is to generate a spectrogram, which is a diagram showing how frequency varies with time (i.e., a frequency vs time plot) in an acoustic signal. Essentially, it is a Fourier transformation from amplitude to frequency space. For the problems in this repository, the goal is not to identify a sequence of letters from a sound (which is so in speech recognition), nevertheless spectrograms offer a very useful starting point.
+A common approach to working with sounds (e.g., in speech recognition) is to generate a spectrogram, which is a diagram showing how frequency varies with time (i.e., a frequency vs time plot) in an acoustic signal. It represents different frequencies in different colours, signifying the amplitude (or loudness) of each frequency in the signal.
+
+To obtain a spectrogram, an acoustic signal is first divided into a number of segments and each is Fourier transformed. (Fourier transformation is a procedure to decompose a waveform into linear combination of its constituent frequencies.) The Fourier transforms for each segment are combined into a single plot called spectrogram. For the problems in this repository, unlike in speech recognition, the goal is not to identify a sequence of letters from a sound. Nevertheless spectrograms offer a very useful starting point.
 
 <a name="speccode"></a>
 ### Code specifics
