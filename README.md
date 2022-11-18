@@ -149,7 +149,13 @@ The loss curve (which is a plot of average loss vs epochs) I obtained is quite a
 
 ## Binary classification
 
-As mentioned before, some of the raw audio files have been labeled as cattle presence/absence (summarised under Data directory). The idea is to use this labelled audio data for training the model.
+As mentioned before, some of the raw audio files have been labeled as cattle presence/absence (summarised under Data directory). The idea is to use this labelled audio data for training the model. There are about five times more labeled cattle present clips than cattle absent. This would seemingly lead to an imbalance in the dataset. However, from an ecological perspective, such imbalance for abundant species is useful. This can be understood from the diagram next.
+<p align="center">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Precisionrecall.svg/396px-Precisionrecall.svg.png"/>
+        <br>
+        <em> Representation of a variational autoencoder. Image sourced from [internet](https://avandekleut.github.io/assets/vae/variational-autoencoder.png) </em>
+    </p>
+For rare species, there would be few
 
 Audio waveform is a time-series. Accordingly, it is natural to consider 1D ConvNets (employing time-only convolutions) for acoustic signals. However, in the last few years, a consensus has been achieved that these models are mostly inferior to (unless made very deep, in that case they could be as good as) 2D vision architectures. Hence, it makes sense to take the latter approach - using 2-dimensional convolutional neural network. Further, I demonstrate the use of OpenSoundscape framework. It has offers the use of various vision architectures, like ResNet, VGG, etc., while abstracting most of the technical details from the users.
 
