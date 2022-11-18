@@ -153,7 +153,7 @@ As mentioned before, some of the raw audio files have been labeled as cattle pre
 <p align="center">
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Precisionrecall.svg/396px-Precisionrecall.svg.png"/>
         <br>
-        <em> Precision and recall in statistics. Image by Walber - Own work, CC BY-SA 4.0, from [Wikipedia]https://commons.wikimedia.org/w/index.php?curid=36926283 </em>
+        <em> Precision and recall in statistics. Image by Walber - Own work, CC BY-SA 4.0, from [Wikipedia](https://commons.wikimedia.org/w/index.php?curid=36926283) </em>
     </p>
 For rare species, there are expected to be only a few events, implying that recall should be high. Cattle on the other hand are ubiquitous, and many sounds (relevant events) are expected. Accordingly, precision should be maximised for such commonly occuring sounds. Indeed, the training data I have has high recall. Further, there are $\sim ~ 700$ cattle absent audio files, signalling that synthetic data generation is not required.
 
