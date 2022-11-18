@@ -10,17 +10,6 @@ I have done this work in collaboration w/ Juliana Velez (julianav), a PhD studen
 
 All coding in this repository has been performed using Python. Data augmentation has been performed using SciPy and PyDub libraries. I have also written a variational autoencoder, a state of the art deep learning algorithm, for pre-processing/augmenting tapir data using PyTorch framework. For supervised classification task, convolutional neural network (CNN) has been used. To this end, I made use of [OpenSoundscape](https://github.com/kitzeslab/opensoundscape) framework, which comes as an open source library and uses PyTorch under the hood.
 
-
-## Table of Contents
-
-1. [ Data ](#data)
-2. [ Technologies ](#tex)
-3. [ Introduction ](#intro)
-4. [ Spectrogram ](#spec)
-5. [ Code specifics ](#speccode)
-
-
-
 <a name="data"></a>
 <!--## Data (Collection/description/set details/etymology!)-->
 ## Data
