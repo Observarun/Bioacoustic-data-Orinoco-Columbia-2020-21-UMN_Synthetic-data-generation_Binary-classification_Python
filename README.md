@@ -153,9 +153,9 @@ As mentioned before, some of the raw audio files have been labeled as cattle pre
 <p align="center">
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Precisionrecall.svg/396px-Precisionrecall.svg.png"/>
         <br>
-        <em> Representation of a variational autoencoder. Image sourced from [internet](https://avandekleut.github.io/assets/vae/variational-autoencoder.png) </em>
+        <em> Precision and recall in statistics. Image by Walber - Own work, CC BY-SA 4.0, from [Wikipedia]https://commons.wikimedia.org/w/index.php?curid=36926283 </em>
     </p>
-For rare species, there would be few
+For rare species, there are expected to be only a few events, implying that recall should be high. Cattle on the other hand are ubiquitous, and many sounds (relevant events) are expected. Accordingly, precision should be maximised for such commonly occuring sounds. Indeed, the training data I have has high recall. Further, there are $\sim ~ 700$ cattle absent audio files, signalling that synthetic data generation is not required.
 
 Audio waveform is a time-series. Accordingly, it is natural to consider 1D ConvNets (employing time-only convolutions) for acoustic signals. However, in the last few years, a consensus has been achieved that these models are mostly inferior to (unless made very deep, in that case they could be as good as) 2D vision architectures. Hence, it makes sense to take the latter approach - using 2-dimensional convolutional neural network. Further, I demonstrate the use of OpenSoundscape framework. It has offers the use of various vision architectures, like ResNet, VGG, etc., while abstracting most of the technical details from the users.
 
