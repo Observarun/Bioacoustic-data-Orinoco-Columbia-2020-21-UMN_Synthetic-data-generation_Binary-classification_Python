@@ -6,7 +6,7 @@
 
 Human activity and climate change have been placing ever increasing pressure on biodiversity. A common problem of interest in conservation biology and ecology research is to detect the presence of a wildlife species in a region. Acoustic monitoring, which is a technique that uses certain electronic devices to capture animal sounds, is seeing growing use in this context. It facilitates collection of wildlife data in a non-invasive manner continuously and over large areas, while avoiding the heavy cost associated with employing humanpower for manual surveys. However, the large scale data thus generated requires intensive analysis using advanced machine learning or deep learning algorithms.
 
-I have done this work in collaboration w/ [Juliana Velez](github handle), a PhD student in the Fieberg Lab (PI: [John Fieberg](github handle), Department of Fisheries, Wildlife, and Conservation Biology) at the University of Minnesota - Twin Cities. I have used deep neural network (DNN) models to classify audio files as having an cattle sounds present or absent. Tapir is one of the wildlife species (classified as "Endangered" by IUCN in 1996) that Juliana has collected data for. Owing to insufficient data for tapir, I've also performed data augmentation - generating new data using existing base dataset - with and without using DNNs. Though I do not train a model for detecting tapir in this repository, this will be done subsequently, and generated data will be useful for that.
+I have done this work in collaboration w/ Juliana Velez (julianav), a PhD student in the Fieberg Lab (PI: John Fieberg (jfieberg), Department of Fisheries, Wildlife, and Conservation Biology) at the University of Minnesota - Twin Cities. I have used deep neural network (DNN) models to classify audio files as having an cattle sounds present or absent. Tapir is one of the wildlife species (classified as "Endangered" by IUCN in 1996) that Juliana has collected data for. Owing to insufficient data for tapir, I've also performed data augmentation - generating new data using existing base dataset - with and without using DNNs. Though I do not train a model for detecting tapir in this repository, this will be done subsequently, and generated data will be useful for that.
 
 All coding in this repository has been performed using Python. Data augmentation has been performed using SciPy and PyDub libraries. I have also written a variational autoencoder, a state of the art deep learning algorithm, for pre-processing/augmenting tapir data using PyTorch framework. For supervised classification task, convolutional neural network (CNN) has been used. To this end, I made use of [OpenSoundscape](https://github.com/kitzeslab/opensoundscape) framework, which comes as an open source library and uses PyTorch under the hood.
 
@@ -29,13 +29,14 @@ Acoustic data has been captured using [AudioMoth](https://www.openacousticdevice
 
 There are millions of audio files, pertaining to wildlife and various disturbances in the form of domestic animals like cattle, dogs, and gunshot sounds. AudioMoth devices were configured to create 10 sec long audio clips in FLAC (Free Lossless Audio Codec) or WAV format. They have forest noise in the background of one or more call by the animal species under consideration. The background could be other animals/birds calls, leaves rustling, twigs snapping as creatures move around, et cetera. A few thousand of these audio files have been labeled as having cattle sounds present or absent by Juliana, either manually or using pattern recognition tools available online (like Rainforest Connection's Arbimon). These are relevant for training the model to detect cattle absence/presence. For the data augmentation task, as mentioned before, the species of concern is mountain tapir. Only four audio records w/ tapir calls could be obtained from the study site. Consequently, some tapir data collected from Cali Zoo (Zoologico de Cali, Cali, Columbia) were also used.
 
-In this repository, I have summarised the data in CSV files. In addition, I provide links to the drive containing audio clips and spectrogram images. This, however, requires requesting access. The sub-directories cattle_pres and cattle_abs under Cattle directory contain the labeled audio files. Tapir data is under the corresponding directory.
+In this repository, I have summarised the data in CSV files. The sub-directories cattle_pres and cattle_abs under Cattle directory contain the metadata for labeled audio files. Tapir metadata is under the corresponding directory.
 
 
 <a name="tex"></a>
 ## Technologies
 
-[Python 3](https://www.python.org/download/releases/3.0/)
+
+[python-csv](https://github.com/jasontrigg0/python-csv) library: For manipulating csv files.
 
 [matplotlib](https://matplotlib.org/) library: Module matplotlib.pyplot for creating, displaying, and saving figures/colorplots.
 
@@ -44,6 +45,8 @@ In this repository, I have summarised the data in CSV files. In addition, I prov
 [pandas](https://pandas.pydata.org/) package: For working w/ dataframes.
 
 [Pydub](http://pydub.com/) library: Used in data augmentation. pydub.AudioSegment for extracting samples and metadata from a sound file, splitting an audio file into parts, and merging various files together.
+
+[Python 3](https://www.python.org/download/releases/3.0/)
 
 [SciPy](https://scipy.org/) library: Module scipy.signal for creating spectrogram from an audio file.
 
@@ -68,9 +71,9 @@ Ideally, one would expect the model to identify all the species in the given dat
 
 A common approach to deep learning with sound data (e.g., in speech recognition) is to generate a spectrogram, which is a diagram showing how frequency varies with time (i.e., a frequency vs time plot) in an acoustic signal. It represents different frequencies in different colours, signifying the amplitude (or loudness) of each frequency in the signal. For the problems in this repository, the goal is not to identify a sequence of letters from a sound (which is so in speech recognition task). Nevertheless spectrograms offer a very useful starting point.
 
-To obtain a spectrogram, an acoustic signal is first divided into a number of segments and each is Fourier transformed. (Fourier transformation is a procedure to decompose a waveform into linear combination of its constituent frequencies: $a_1 f_1 + a_2 f_2 + \cdot\cdot\cdot$, where $a_i$ is the amplitude of the frequency $f_i$.) The Fourier transforms for each segment are combined into a single plot. I've shown a sample spectrogram later.
+To obtain a spectrogram, an acoustic signal is first divided into a number of segments and each is Fourier transformed. (Fourier transformation is a procedure to decompose a waveform into linear combination of its constituent frequencies: $a_1 f_1 + a_2 f_2 + \cdot\cdot\cdot$, where $a_i$ is the amplitude of the frequency $f_i$.) The Fourier transforms for each segment are then combined into a single plot. I show a sample spectrogram later.
 
-It turns out that humans perceive a very small range of frequencies, because of which a frequency vs time plot is not very informative. Further, our perception of the difference between two sounds is NOT in terms of the difference between their frequencies, but in terms of the logarithm their ratio. To exemplify, the distinction between two sounds w/ frequencies 10 Hz and 20 Hz is much more than that between sounds of frequencies 100 Hz and 110 Hz. Based on psychoacoustic experiments, there is a consensus that [mel scale](https://en.wikipedia.org/wiki/Mel_scale) offers a good representation of the frequencies that humans typically hear. Similar to frequency, humans also perceive loudness logarithmically, which is quantified using Decibel scale. Our perceptions of frequency and loudness ae accounted for using mel spectrograms, which have mel scale on the y axis and colour signifies decibel levels.
+It turns out that humans perceive a very small range of frequencies, because of which a frequency vs time plot is not very informative. Further, our perception of the difference between two sounds is not in terms of the difference between their frequencies, but in terms of the logarithm their ratio. To exemplify, the distinction between two sounds w/ frequencies 10 Hz and 20 Hz is much more than that between sounds of frequencies 100 Hz and 110 Hz. Based on psychoacoustic experiments, there is a consensus that [mel scale](https://en.wikipedia.org/wiki/Mel_scale) offers a good representation of the frequencies that humans typically hear. Similar to frequency, humans also perceive loudness logarithmically, which is quantified using Decibel scale. Our perceptions of frequency and loudness are accounted for using mel spectrograms, which have mel scale on the y axis and colour signifies decibel levels.
 
 <a name="speccode"></a>
 ### Code specifics
