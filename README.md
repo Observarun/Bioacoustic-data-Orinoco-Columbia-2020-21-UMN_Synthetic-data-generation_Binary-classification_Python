@@ -43,7 +43,7 @@ In this repository, I have summarised the data in CSV files. The sub-directories
 
 [torchvision](https://pytorch.org/vision/stable/index.html) library: Classes of datasets and transforms modules for transforming the dataset to a form accessible for pytorch. 
 
-<!--[OpenSoundscape](http://opensoundscape.org/en/latest/) framework: Corresponding library used for coding CNN models to analyse bio-acoustic data.-->
+[OpenSoundscape](http://opensoundscape.org/en/latest/) framework: Corresponding library used for coding CNN models to analyse bio-acoustic data.
 
 
 <!--<a name="exsum"></a>-->
@@ -83,7 +83,7 @@ The first method of data augmentation is what I would like to call 'controlled' 
     <p align="center">
     <img src="https://user-images.githubusercontent.com/83636458/194688632-39b7fe1f-4cf9-4c5b-8c48-1a63aa89d4a9.png"/>
         <br>
-        <em> Spectrogram of an audio clip containing one tapir call </em>
+        <em> Spectrogram of an audio clip containing one tapir call between $7$s and $8$s</em>
     </p>
 The spike in frequency as seen fairly localised between 7, 8 sec on time axis represents a tapir call. I moved the tapir frequency spike in time, with each new clip created out of this one having the frequency spike at different time instances. I have done this in two different ways, distinction being in the background of the tapir call. Next, I describe, and give arguments for, each.
 
