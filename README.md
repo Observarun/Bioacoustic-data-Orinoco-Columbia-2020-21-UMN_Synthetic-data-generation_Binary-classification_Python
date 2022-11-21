@@ -162,7 +162,7 @@ The model is conceptually divided between feature extractor part and a classifie
 
 Though OpSo a user-friendly deep learning framework, I believe that it is lacking in some areas. The foremost being in the context of hyperparameter optimisation. While there exists a default learning rate scheduling, and it can also be modified, there is no tuning for batch size, which I believe is also an important parameter. For number of epochs, early stopping with validation loss as stopping criterion is used. However, in cases when there is insufficient training data, it may not be possible to separate a holdout set for validation. Then, number of epochs may also need to be tuned.
 
-### Code details
+### Code specifics
 
 I have used a ResNet18 network pre-trained on ImageNet with the feature extractor frozen. This is coded in [opensoundscape.torch.architectures.resnet](https://github.com/kitzeslab/opensoundscape/blob/be1b77ee85c403996a34f92f2662d7a0f427ff0e/opensoundscape/torch/architectures/resnet.py) module. I take this approach because the images appear to have only low level features, and ImageNet weights should present a fairly good estimate for the feature extractor. This also makes the training faster.
 
