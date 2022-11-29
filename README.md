@@ -24,10 +24,11 @@ In this repository, I have summarised the data in CSV files. The sub-directories
 <a name="tex"></a>
 ## Technologies
 
-
-[python-csv](https://github.com/jasontrigg0/python-csv) library: For manipulating csv files.
-
 [matplotlib](https://matplotlib.org/) library: Module matplotlib.pyplot for creating, displaying, and saving figures/colorplots.
+
+[NumPy](https://numpy.org/) package
+
+[OpenSoundscape](http://opensoundscape.org/en/latest/) framework: Corresponding library used for coding CNN models for species classification using bio-acoustic data.
 
 [pathib](https://pathlib.readthedocs.io/en/pep428/) module: Classes Path and PurePath for working w/ files and directories.
 
@@ -37,13 +38,13 @@ In this repository, I have summarised the data in CSV files. The sub-directories
 
 [Python 3](https://www.python.org/download/releases/3.0/)
 
+[python-csv](https://github.com/jasontrigg0/python-csv) library: For manipulating csv files.
+
 [SciPy](https://scipy.org/) library: Module scipy.signal for creating spectrogram from an audio file.
 
 [torch](https://pypi.org/project/torch/) library : Classes and sub-modules of torch.nn used for writing variational autoencoder; part of [PyTorch](https://pytorch.org/) framework.
 
 [torchvision](https://pytorch.org/vision/stable/index.html) library: Classes of datasets and transforms modules for transforming the dataset to a form accessible for pytorch. 
-
-[OpenSoundscape](http://opensoundscape.org/en/latest/) framework: Corresponding library used for coding CNN models for species classification using bio-acoustic data.
 
 
 <!--<a name="exsum"></a>-->
