@@ -43,7 +43,7 @@ In this repository, I have summarised the data in CSV files. The sub-directories
 
 [torchvision](https://pytorch.org/vision/stable/index.html) library: Classes of datasets and transforms modules for transforming the dataset to a form accessible for pytorch. 
 
-[OpenSoundscape](http://opensoundscape.org/en/latest/) framework: Corresponding library used for coding CNN models to analyse bio-acoustic data.
+[OpenSoundscape](http://opensoundscape.org/en/latest/) framework: Corresponding library used for coding CNN models for species classification using bio-acoustic data.
 
 
 <!--<a name="exsum"></a>-->
