@@ -26,7 +26,7 @@ In this repository, I have summarised the data in CSV files. The sub-directories
 
 [matplotlib](https://matplotlib.org/) library: Module matplotlib.pyplot for creating, displaying, and saving figures/colorplots.
 
-[NumPy](https://numpy.org/) package
+[NumPy](https://numpy.org/) package: For transforming data in acoustic signal to numpy array which can be used for further processing.
 
 [OpenSoundscape](http://opensoundscape.org/en/latest/) framework: Corresponding library used for coding CNN models for species classification using bio-acoustic data.
 
