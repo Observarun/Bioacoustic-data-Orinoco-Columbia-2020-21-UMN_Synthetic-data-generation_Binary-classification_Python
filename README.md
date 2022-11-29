@@ -86,6 +86,7 @@ First, I describe the procedure of generating synthetic audio clips. I have done
         <br>
         <em> Spectrogram of an audio clip showing $log(freq)$ vs $time$. There is a tapir call between $7s$ and $8s$ </em>
     </p>
+
 The spike in frequency as seen fairly localised between $7s$, $8s$ on time axis represents a tapir call. I moved the tapir frequency spike in time, with each new clip created out of this one having the frequency spike at different time instances. (Note, that while I'm explaining this using spectrogram, this has been carried out at the level of audio clips.) I have done this in two different ways, distinction being in the background of the tapir call. Next, I describe, and give arguments for, each.
 
 * In the first approach, I generate records having complete silence in the background of the tapir sound. To understand the rationale for this, consider a hypothetical classification model trained with audio clips each having at least one tapir sound. During the training phase, the model will need to isolate the tapir call out of the $5$ seconds long clip. Since the training data for tapir presence is sparse, it seems sensible to have complete silence in the clip other than at the instance of the tapir call. In a way, this makes it convenient for the model to isolate the tapir call out of the background.
